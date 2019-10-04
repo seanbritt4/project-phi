@@ -166,6 +166,11 @@
 	    }
 	}
 
+    function sendAndRedirect(tempo, valence, danceability, loudness, energy){
+        window.location.href = "./testSend.html";
+        document.getElementById("tempo").innerHTML = tempo;
+    }
+
 	function submit(){
 		console.log("Submit:\nTempo " + radii[0]/maxRadius);
 		console.log("Valence: " + radii[1]/maxRadius);
