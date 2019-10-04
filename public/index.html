@@ -167,6 +167,7 @@
 	}
 
     function sendAndRedirect(tempo, valence, danceability, loudness, energy){
+        console.log("redirecting...");
         window.location.href = "./testSend.html";
         document.getElementById("tempo").innerHTML = tempo;
     }
@@ -177,6 +178,7 @@
 		console.log("Danceability: " + radii[2]/maxRadius);
 		console.log("Loudness: " + radii[3]/maxRadius);
 		console.log("Energy: " + radii[4]/maxRadius);
+        sendAndRedirect(radii[0]/maxRadius, radii[1]/maxRadius, radii[2]/maxRadius, radii[3]/maxRadius, radii[4]/maxRadius);
 	}
 
 	function downvote(){
