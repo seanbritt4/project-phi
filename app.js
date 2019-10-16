@@ -9,6 +9,18 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+// socket test code
+var io = require('socket.io').listen(80);   //init socket.io server
+ io.sockets.on('connection', function(socket) {
+     socket.emit('news', {hello: 'world'}); // send data to the client
+
+     //wait for the event raised by the client
+     socket.on('my other event', function (data){
+         console.log(data);
+     });
+ });
+// end socket test code
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
