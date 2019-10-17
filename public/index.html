@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <!-- clientside TensorFlow; used in nn.js-->
+    <script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0";
+    document.getElementsByTagName('head')[0].appendChild(script)></script>
+    <!-- neural net js file -->
+    <script src="nn.js" type="text/javascript"></script>
+    <!-- handles user input -->
+    <script src="input.js" type="text/javascript"></script>
+    <!-- -->
+    <!-- handles user log in -->
+    <script src="login.js" type="text/javascript"></script>
+<body>
+    <div id="greet">
+        Welcome, Guest!
+        <button type="submit" id="login" onclick="user_login()">login</button>
+        <br>
+    </div>
+    <div id='input'>
+        <div class="slidecontainer">
+            <input type="range" min="-100" max="100" value="0" class="slider" id="Loudness">
+            Loudness
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="-100" max="100" value="0" class="slider" id="Danceability">
+            Danceability
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="-100" max="100" value="0" class="slider" id="Hapiness">
+            Happiness
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="-100" max="100" value="0" class="slider" id="Tempo">
+            Tempo
+        </div>
+        <div class="slidecontainer">
+            <input type="range" min="-100" max="100" value="0" class="slider" id="Energy">
+            Energy
+        </div>
+
+        <button type="submit" id="submit" onclick="nnsubmit()">Submit</button>
+    </div>
+    <div id="demo"></div>
+    <div id="output"></div>
+    <!-- <button type="submit" id="submit" onclick="nnsubmit()">Submit</button> -->
+</body>
+</html>
