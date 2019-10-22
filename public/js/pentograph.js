@@ -129,29 +129,28 @@ function submit(){
       energy: radii[4]/maxRadius
     };
 
-//
-//   $(function() {
-// //			$('#submit').on('click', function() {
-//       $.ajax({
-//         url: '/values',
-//         method: 'POST',
-//         contentType: 'application/json',
-//         data: JSON.stringify(vals),
-//         success: function(response) {
-//           console.log(response);
-//         }
-//       });
-// //			});
-//   });
-  /*
-  console.log("Submit:\nTempo " + radii[0]/maxRadius);
-  console.log("Valence: " + radii[1]/maxRadius);
-  console.log("Danceability: " + radii[2]/maxRadius);
-  console.log("Loudness: " + radii[3]/maxRadius);
-  console.log("Energy: " + radii[4]/maxRadius);
-      sendAndRedirect(radii[0]/maxRadius, radii[1]/maxRadius, radii[2]/maxRadius, radii[3]/maxRadius, radii[4]/maxRadius);
-  */
-  nnsubmit(vals);
+    console.log('pent::sub, v:', vals);
+    $(function () {
+        console.log('submited');
+
+        var data = {};
+        data.w = vals;
+        console.log('in jquery, w:', vals);
+        data.title = "title";
+        data.message = "message";
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            url: 'http://localhost:3000',
+            success: function (data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+        });
+    });
+
+  // nnsubmit(vals);
 }
 
 function downvote(){

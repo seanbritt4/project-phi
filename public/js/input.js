@@ -37,12 +37,12 @@ function nnsubmit(){
             }
         });
     });
-  
 
-function nnsubmit(vals){
+
+    // function nnsubmit(vals){
   //clear html div, remove input sliders
-  document.getElementById('input').innerHTML = 'working...';
+ // document.getElementById('input').innerHTML = 'working...';
 
-  console.log(vals); //used for debugging
-    nn_main(vals);
+ // console.log(vals); //used for debugging
+    // nn_main(vals);
 }

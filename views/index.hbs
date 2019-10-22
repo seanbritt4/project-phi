@@ -5,62 +5,27 @@
 document.getElementsByTagName('head')[0].appendChild(script)></script>
 {{!-- neural net js file --}}
 <script src="js/nn.js" type="text/javascript"></script>
-
-
-<script src="js/input.js" type="text/javascript"></script>
-
-
-<script src="js/jsgl.js" type="text/javascript"></script>
-<div id="panel" style ="width: 440px; height: 440px; position: absolute"></div>
-<script src="js/pentograph.js" type="text/javascript"></script>
-
-{{!-- handles user input --}}
-{{!-- handles user log in --}}
+<!-- <script src="js/input.js" type="text/javascript"></script> -->
 <script src="js/login.js" type="text/javascript"></script>
+
 {{!-- jQuery --}}
-<!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 <script type="text/javascript"
         src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js">
 </script>
 
 <div class="body">
-
-    {{!-- jQuery test --}}
-    <!-- <div class="trigger">Trigger</div>
-    <div class="result"></div>
-    <div class="log"></div> -->
-
-
-    {{!-- phi html --}}
     <div id="greet">
         Welcome, {{name}}!
         <button type="submit" id="login" onclick="user_login()">login</button>
         <br>
     </div>
 
-    <div id='input'>
-        <div class="slidecontainer">
-            <br>Loudness<br>
-            <input type="range" min="-100" max="100" value="0" class="slider" id="Loudness">
-        </div>
-        <div class="slidecontainer">
-            Danceability<br>
-            <input type="range" min="-100" max="100" value="0" class="slider" id="Danceability">
-        </div>
-        <div class="slidecontainer">
-            Happiness<br>
-            <input type="range" min="-100" max="100" value="0" class="slider" id="Hapiness">
-        </div>
-        <div class="slidecontainer">
-            Tempo<br>
-            <input type="range" min="-100" max="100" value="0" class="slider" id="Tempo">
-        </div>
-        <div class="slidecontainer">
-            Energy<br>
-            <input type="range" min="-100" max="100" value="0" class="slider" id="Energy">
-        </div>
-        <button type="submit" id="submit" onclick="submit()">Submit</button>
-        
+    <script src="js/jsgl.js" type="text/javascript"></script>
+    <div id="panel" style ="width: 440px; height: 440px; position: absolute"></div>
+    <script src="js/pentograph.js" type="text/javascript"></script>
+
+    <button type="submit" id="submit" onclick="submit()">Submit</button>
+
     </div>
     <div id="demo"></div>
     <div id="output"></div>
