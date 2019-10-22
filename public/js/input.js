@@ -1,53 +1,45 @@
 var weights = [0.0, 0.0, 0.0, 0.0, 0.0];
 window.onload = function(){
-    // console.log('hello from nn');
     var sliders =  [document.getElementById("Loudness"),
                     document.getElementById("Danceability"),
                     document.getElementById("Hapiness"),
                     document.getElementById("Tempo"),
                     document.getElementById("Energy")]
-    // // var output = document.getElementById("demo");
-    // output.innerHTML = slider.value; // Display the default slider value
 
     // Update the current slider value (each time you drag the slider handle)
-    sliders[0].oninput = function() {
-        // output.innerHTML = this.value;
-        // console.log(this.id,': ', this.value);
-        weights[0] = this.value;
-    }
-    sliders[1].oninput = function() {
-        // output.innerHTML = this.value;
-        // console.log(this.id,': ', this.value);
-        weights[1] = this.value;
-    }
-    sliders[2].oninput = function() {
-        // output.innerHTML = this.value;
-        // console.log(this.id,': ', this.value);
-        weights[2] = this.value;
-    }
-    sliders[3].oninput = function() {
-        // output.innerHTML = this.value;
-        // console.log(this.id,': ', this.value);
-        weights[3] = this.value;
-    }
-    sliders[4].oninput = function() {
-        // output.innerHTML = this.value;
-        // console.log(this.id,': ', this.value);
-        weights[4] = this.value;
-    }
-
-    // document.getElementById(submit).onclick(nnsubmit(weights));
+    sliders[0].oninput = function() { weights[0] = this.value; }
+    sliders[1].oninput = function() { weights[1] = this.value; }
+    sliders[2].oninput = function() { weights[2] = this.value; }
+    sliders[3].oninput = function() { weights[3] = this.value; }
+    sliders[4].oninput = function() { weights[4] = this.value; }
 };
 
 function nnsubmit(){
-    //clear html div, remove input sliders
-    document.getElementById('input').innerHTML = 'working...';
+    // let a
+    console.log('nnsub, w:', weights);
+    $(function () {
+        console.log('submited');
 
-    // convert from string to number
-    for(var i in weights){
-        weights[i] = Number(weights[i]) / 100; // puts number between 0.0 and 1.0
-    }
+        var data = {};
+        data.w = weights;
+        console.log('in jquery, w:', weights);
+        data.title = "title";
+        data.message = "message";
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            url: 'http://localhost:3000',
+            success: function (data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+        });
+    });
+    // $(document).ready(function(){
+    //     $("#input").click(function(){
+    //         $(this).hide();
+    //     });
+    // });
 
-    console.log(weights); //used for debugging
-    nn_main(weights);
 }

@@ -12,15 +12,15 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
 {{!-- jQuery --}}
 <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
 <script type="text/javascript"
-        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js">
+        src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js">
 </script>
 
 <div class="body">
 
     {{!-- jQuery test --}}
-    <!-- <div class="trigger">Trigger</div>
+    <div class="trigger">Trigger</div>
     <div class="result"></div>
-    <div class="log"></div> -->
+    <div class="log"></div>
 
     {{!-- phi html --}}
     <div id="greet">
@@ -28,6 +28,7 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
         <button type="submit" id="login" onclick="user_login()">login</button>
         <br>
     </div>
+    <div id="advanced">advanced options</div>
     <div id='input'>
         <div class="slidecontainer">
             <br>Loudness<br>
@@ -50,6 +51,7 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
             <input type="range" min="-100" max="100" value="0" class="slider" id="Energy">
         </div>
 
+        <!-- <button type="submit" id="submit" >Submit</button> -->
         <button type="submit" id="submit" onclick="nnsubmit()">Submit</button>
     </div>
     <div id="demo"></div>
