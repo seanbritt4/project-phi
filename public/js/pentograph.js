@@ -1,5 +1,3 @@
-console.log("I hate you");
-
 // Determine if mouse is within a certain radius of another point
 function isInCircle(mx, my, px, py, radius){
   var dis = Math.sqrt(Math.pow(mx - px, 2) + Math.pow(my - py, 2));
@@ -25,7 +23,6 @@ var polygon = myPanel.createPolygon();
 myPanel.addElement(polygon);
 
 polygon.getFill().setColor('#5F5');//#F80');
-console.log("Fuck you bruv");
 var points = 5;
 
 var lines = [];
@@ -142,7 +139,7 @@ function submit(){
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json',
-            url: 'http://localhost:3000',
+            url: 'https://project-phi.herokuapp.com',
             success: function (data) {
                 console.log('success');
                 console.log(JSON.stringify(data));
