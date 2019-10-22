@@ -1,3 +1,4 @@
+
 var weights = [0.0, 0.0, 0.0, 0.0, 0.0];
 window.onload = function(){
     var sliders =  [document.getElementById("Loudness"),
@@ -36,10 +37,12 @@ function nnsubmit(){
             }
         });
     });
-    // $(document).ready(function(){
-    //     $("#input").click(function(){
-    //         $(this).hide();
-    //     });
-    // });
+  
 
+function nnsubmit(vals){
+  //clear html div, remove input sliders
+  document.getElementById('input').innerHTML = 'working...';
+
+  console.log(vals); //used for debugging
+    nn_main(vals);
 }

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Phi for Spotify</title>
+    <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous">
+    </script>
+    <script type="text/javascript" src="./jsgl.min.js"></script>
+    <link rel = "stylesheet"
+    type = "text/css"
+    href = "stylesheet.css" />
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Project Phi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span
+              class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Connect with Spotify</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Phi</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact Us</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search"
+          placeholder="Search Playlists" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0"
+          type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    </head>
+
+    <body>
+<div id="panel" style="width: 440px; height: 440px; position: absolute"></div>
+    <script type="text/javascript">
+	// Determine if mouse is within a certain radius of another point
+	function isInCircle(mx, my, px, py, radius){
+		var dis = Math.sqrt(Math.pow(mx - px, 2) + Math.pow(my - py, 2)); 
+		if(dis <= radius){
+			return "true";
+		} else {
+			return "false";
+		}
+	}
+
+	//returns the distance between two points
+	function getDistance(mx, my, px, py){	
+		var dis = Math.sqrt(Math.pow(mx - px, 2) + Math.pow(my - py, 2)); 
+		return dis;
+	}
+
+
+        myPanel = new jsgl.Panel(document.getElementById("panel"));
+
+
+ 
+	var polygon = myPanel.createPolygon();
+	myPanel.addElement(polygon);
+
+	polygon.getFill().setColor('#5F5');//#F80');
+	
+	var points = 5;
+
+	var lines = [];
+	var text = [];
+
+	var twoPi = Math.PI * 2;
+	var center = [215, 220];
+	var radii = [100, 100, 100, 100, 100];
+	var maxRadius = 200;
+	var i;
+	for(i = 0; i < points; i++){
+		var x = Math.sin((twoPi)*(i/points))*radii[i] + center[0];	
+		var y = Math.cos((twoPi)*(i/points))*radii[i] + center[1];
+
+		lines[i] = myPanel.createLine();
+		lines[i].setStartPointXY(center[0], center[1]);
+		lines[i].setEndPointXY(x, y);
+	
+		myPanel.addElement(lines[i]);
+		polygon.addPointXY(x, y);	  
+	
+		x = Math.sin((twoPi)*(i/points))*maxRadius + center[0];
+		y = Math.cos((twoPi)*(i/points))*maxRadius + center[1];
+		text[i] = myPanel.createLabel();
+		text[i].setLocationXY(x, y);
+		text[i].setHorizontalAnchor(jsgl.HorizontalAnchor.CENTER);
+		text[i].setVerticalAnchor(jsgl.VerticalAnchor.CENTER);
+        text[i].setFontColor('#800');
+
+		myPanel.addElement(text[i]);
+	}
+
+
+	text[0].setText("Tempo");
+	text[1].setText("Happiness");
+	text[2].setText("Danceability");
+	text[3].setText("Loudness");
+	text[4].setText("Energy");
+
+	var clicked = "false";
+	var selected = -1;
+	function clickHandler(eventArgs){
+	    	clicked = "true";
+	}
+
+	function releaseHandler(eventArgs){
+		clicked = "false";
+		selected = -1;
+	}
+
+    function mouseOutHandler(eventArgs){
+        clicked = "false";
+    }
+
+	myPanel.addMouseDownListener(clickHandler);
+	myPanel.addMouseUpListener(releaseHandler);
+	myPanel.addMouseMoveListener(movePoint);
+    //myPanel.addMouseOutListener(releaseHandler);
+	function movePoint(eventArgs){
+	    
+	    if(clicked === "true"){	
+			for(var i = 0; i < polygon.getPointsCount(); i++){
+				if(selected !== -1)
+					i = selected;
+				mouseXY = eventArgs.getLocation();
+				pointXY = polygon.getPointAt(i);
+	    			if(isInCircle(mouseXY.getX(), mouseXY.getY(), pointXY.getX(), pointXY.getY(), 15) == "true" || selected === i){
+					selected = i;
+					var dist = getDistance(mouseXY.getX(), mouseXY.getY(), center[0], center[1]);
+					if(dist <= maxRadius){
+						var x = Math.sin((twoPi)*(i/5))*dist + center[0];
+						var y = Math.cos((twoPi)*(i/5))*dist + center[1];
+						radii[i] = dist;
+						polygon.setPointXYAt(x, y, i);
+						lines[i].setEndPointXY(x, y);
+                        var c = (Math.floor((radii[i]/maxRadius)*16)).toString(16);
+                        if(c === 10)
+                            c = 0xF;
+                        c = 0xF - parseInt(c, 16);
+                        c = c.toString(16);
+                        text[i].setFontColor("#" + c + '' + 0 + '' + 0);
+                        console.log("#" + c + '' + c + '' + c);
+					}
+	    				i = polygon.getPointsCount();
+	    			}
+			 }
+	    }
+	}
+
+	function submit(){
+		console.log("Submit:\nTempo " + radii[0]/maxRadius);
+		console.log("Valence: " + radii[1]/maxRadius);
+		console.log("Danceability: " + radii[2]/maxRadius);
+		console.log("Loudness: " + radii[3]/maxRadius);
+		console.log("Energy: " + radii[4]/maxRadius);
+	}
+
+	function downvote(){
+		console.log("User does not like the playlist.");
+	}
+
+	function upvote(){
+		console.log("User does like the playlist.");
+	}
+   </script>
+   <button type="button" style="position: relative" onclick="submit();">Submit</button>
+   <button type="button" style="position: relative" onclick="downvote();">This Playlist Sucks</button>
+   <button type="button" style="position: relative" onclick="upvote();">This Playlist is Alright</button>
+
+    </body>
+</html>

@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
 var bparser = require('body-parser');   //use to convert json body to strings when needed
 var indexRouter = require('./routes/index');    //index.js
 var usersRouter = require('./routes/users');    //users.js
@@ -30,6 +31,17 @@ app.post('/', function(req, res){
 
 console.log('here, app.js');
 
+
+/*  spotify login code  */
+app.get('/login', function(req, res) {
+    console.log('login');
+    // var scopes = 'user-read-private user-read-email';
+    // res.redirect('https://accounts.spotify.com/authorize' +
+    // '?response_type=code' +
+    // '&client_id=' + my_client_id +
+    // (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
+    // '&redirect_uri=' + encodeURIComponent(redirect_uri));
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

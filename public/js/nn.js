@@ -5,6 +5,7 @@ function nn_main(w){
     console.log('hello from nn main()');
     console.log(w);
 
+
     $(document).ajaxSend(()=>{
         $('.log').text("hello from nn main(), ajax");
         // console.log('in nn jquery');
