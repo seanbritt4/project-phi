@@ -80,7 +80,7 @@ function releaseHandler(eventArgs){
 myPanel.addMouseDownListener(clickHandler);
 myPanel.addMouseUpListener(releaseHandler);
 myPanel.addMouseMoveListener(movePoint);
-  //myPanel.addMouseOutListener(releaseHandler);
+
 function movePoint(eventArgs){
 
     if(clicked === "true"){
@@ -111,20 +111,26 @@ function movePoint(eventArgs){
     }
 }
 
-  function sendAndRedirect(tempo, valence, danceability, loudness, energy){
-      //console.log("redirecting...");
-      //window.location.href = "./testSend.html";
-      //document.getElementById("tempo").innerHTML = tempo;
-  }
-
 function submit(){
   var vals = {
       tempo: radii[0]/maxRadius,
       valence: radii[1]/maxRadius,
       danceability: radii[2]/maxRadius,
       loudness: radii[3]/maxRadius,
-      energy: radii[4]/maxRadius
+      energy: radii[4]/maxRadius,
+      genre: document.getElementById("genre").value,
+      popularity: "NULL",
+      liveness: "NULL",
+      key: "NULL",
+      modality: "NULL"
     };
+
+    if(document.getElementById("advanced").style.display === "block"){
+	vals.popularity = document.getElementById("advanced").getElementsByClassName("popularity").value;
+	vals.liveness = document.getElementById("advanced").getElementsByClassName("liveness").value;
+	vals.key = document.getElementById("advanced").getElementsByClassName("key").value;
+	vals.modality = document.getElementById("advanced").getElementsByClassName("mode").value;
+    }
 
     console.log('pent::sub, v:', vals);
     $(function () {
