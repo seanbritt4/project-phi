@@ -1,31 +1,128 @@
-<!-- <h1>{{title}}</h1> -->
-<h1>Project PHI</h1>
-{{!-- clientside TensorFlow; used in nn.js--}}
-<script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0";
-document.getElementsByTagName('head')[0].appendChild(script)></script>
-{{!-- neural net js file --}}
-<script src="js/nn.js" type="text/javascript"></script>
-<!-- <script src="js/input.js" type="text/javascript"></script> -->
-<script src="js/login.js" type="text/javascript"></script>
+<!DOCTYPE html>
+<html lang="en">
+<!-- <title>Project Phi</title> -->
+<title>{{Title}}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<!-- <link rel="stylesheet" href=""> -->
+<script src='js/Modals.js' type='text/javascript'></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lato", sans-serif
+  }
 
-{{!-- jQuery --}}
-<script type="text/javascript"
-        src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js">
-</script>
+  .bar,
+  h1,
+  button {
+    font-family: "Montserrat", sans-serif
+  }
 
-<div class="body">
-    <div id="greet">
-        {{!-- Welcome, {{name}}! --}}
-        welcome guest
-        <button type="submit" id="login" onclick="user_login()">login</button>
-        <br>
+    {
+    font-size: 200px
+  }
+
+  a:link,
+  a:visited {
+    background-color: green;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  a:hover,
+  a:active {
+    background-color: red;
+  }
+</style>
+
+<body>
+
+  <!-- Navbar -->
+  <div class="top">
+    <div class="bar green card left-align large">
+      <a class="bar-item button hide-medium hide-large right padding-large hover-white large green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="/home/blade/Desktop/projectPhi/welcome.html" class="bar-item button padding-large white" target="_self">Home</a>
+      <button id='about' class="bar-item button hide-small padding-large hover-white" target="_self">About</a>
+          <div id='aboutModal' class='modal'>
+              <div class='about-content'>
+                  <span class='close'>&times;</span>
+                      <p>
+                          <h1>What We Are</h1>
+                          <h5 class="padding-32">Phi is a web application that allows you, the user, to generate a
+                            playlist based on your mood. This is accomplished through the answering of several questions
+                            asked through our interface.
+                          </h5>
+
+                          <p class="text-grey">These questions that are answered return to the AI a set of values that
+                            are then compared to our database of songs, provided to us through Spotify. Any songs that meet
+                            the criteria given are placed into a playlist. Simply log in with your Spotify account and get
+                            started! *Disclosure: We do not save any account information, all login credentials are stored
+                            through Spotify.*</p>
+                      </p>
+              </div>
+
+      <!-- <a href="/home/blade/Desktop/projectPhi/about.html" class="bar-item button hide-small padding-large hover-white" target="_self">Try It Out</a> -->
+      <!-- <a href="/home/blade/Desktop/projectPhi/about.html" class="bar-item button hide-small padding-large hover-white" target="_self">About Us</a> -->
+        </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="bar-block white hide hide-large hide-medium large">
+      <a href="#" class="bar-item button padding-large">Connect</a>
+      <a href="#" class="bar-item button padding-large">Try It Out</a>
+      <a href="#" class="bar-item button padding-large">About Us</a>
     </div>
+  </div>
 
-    <script src="js/jsgl.js" type="text/javascript"></script>
-    <div id="panel" style ="width: 440px; height: 440px; position: absolute"></div>
-        <script src="js/pentograph.js" type="text/javascript"></script>
-        <button type="submit" id="submit" onclick="submit()">Submit</button>
+  <!-- Header -->
+  <header class="container green center" style="padding:128px 16px">
+    <h1 class="margin jumbo">Welcome to Phi for Spotify</h1>
+    <button class="button black padding-large large margin-top">Get Started</button>
+  </header>
+
+  <!-- First Grid -->
+  <div class="row-padding padding-64 container">
+    <div class="content">
+      <div>
+        <!-- <h1>What We Are</h1>
+        <h5 class="padding-32">Phi is a web application that allows you, the user, to generate a
+          playlist based on your mood. This is accomplished through the answering of several questions
+          asked through our interface.
+        </h5>
+
+        <p class="text-grey">These questions that are answered return to the AI a set of values that
+          are then compared to our database of songs, provided to us through Spotify. Any songs that meet
+          the criteria given are placed into a playlist. Simply log in with your Spotify account and get
+          started! *Disclosure: We do not save any account information, all login credentials are stored
+          through Spotify.*</p> -->
+      </div>
+
+      <div class="third center">
+      </div>
     </div>
-    <div id="demo"></div>
-    <div id="output"></div>
-</div>
+  </div>
+
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("show") == -1) {
+        x.className += " show";
+      } else {
+        x.className = x.className.replace(" show", "");
+      }
+    }
+  </script>
+</body>
+</html>
