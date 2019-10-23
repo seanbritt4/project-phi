@@ -9,17 +9,15 @@ var indexRouter = require('./routes/index');    //index.js
 var usersRouter = require('./routes/users');    //users.js
 var app = express();
 
-// var jsdom = require("jsdom");
-// const { JSDOM } = jsdom;
-// const { window } = new JSDOM();
-// const { document } = (new JSDOM('')).window;
-// global.document = document;
-//
-// var $ = jQuery = require('jquery')(window);
-//
-// $.ajaxSetup({
-//     url: "index.hbs"
-// });
+// var nn
+/*
+    NOTE:
+    when including our own files from other directories,
+    filepaths should look like this:
+        './path/to/file'
+*/
+var spotify = require('./phi_modules/spotify_API/sAPIhello.js');
+
 
 app.use(bparser.json());
 app.post('/', function(req, res){
@@ -27,21 +25,6 @@ app.post('/', function(req, res){
     console.log('app.js, body:' + JSON.stringify(req.body));
     res.send(req.body);
 });
-// $.get(res, req)
-
-console.log('here, app.js');
-
-
-/*  spotify login code  */
-// app.get('/login', function(req, res) {
-    // console.log('login');
-    // var scopes = 'user-read-private user-read-email';
-    // res.redirect('https://accounts.spotify.com/authorize' +
-    // '?response_type=code' +
-    // '&client_id=' + my_client_id +
-    // (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
-    // '&redirect_uri=' + encodeURIComponent(redirect_uri));
-// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,12 +39,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// app.get('/public/login', function(req, res) {
-//     // res.send('hello from app.js');
-//     console.log('req:', req);
-// });
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

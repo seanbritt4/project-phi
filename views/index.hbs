@@ -1,5 +1,5 @@
-<h1>{{title}}</h1>
-
+<!-- <h1>{{title}}</h1> -->
+<h1>Project PHI</h1>
 {{!-- clientside TensorFlow; used in nn.js--}}
 <script src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.10.0";
 document.getElementsByTagName('head')[0].appendChild(script)></script>
@@ -15,17 +15,16 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
 
 <div class="body">
     <div id="greet">
-        Welcome, {{name}}!
+        {{!-- Welcome, {{name}}! --}}
+        welcome guest
         <button type="submit" id="login" onclick="user_login()">login</button>
         <br>
     </div>
 
     <script src="js/jsgl.js" type="text/javascript"></script>
     <div id="panel" style ="width: 440px; height: 440px; position: absolute"></div>
-    <script src="js/pentograph.js" type="text/javascript"></script>
-
-    <button type="submit" id="submit" onclick="submit()">Submit</button>
-
+        <script src="js/pentograph.js" type="text/javascript"></script>
+        <button type="submit" id="submit" onclick="submit()">Submit</button>
     </div>
     <div id="demo"></div>
     <div id="output"></div>
