@@ -1,3 +1,13 @@
+window.onload = function(){
+    // var welc = document.getElementById('welcome').style.display
+    // welc.onclick = function(){
+    //      welc.style.display = 'none';
+    //  }
+    // document.getElementById('selector').style.display = '';
+
+}
+
+
 // Determine if mouse is within a certain radius of another point
 function isInCircle(mx, my, px, py, radius){
   var dis = Math.sqrt(Math.pow(mx - px, 2) + Math.pow(my - py, 2));
