@@ -24,7 +24,7 @@ var app = express();
 app.use(bparser.json());
 app.post('/', function(req, res){
     var obj = {};
-    console.log('body: ' + JSON.stringify(req.body));
+    console.log('app.js, body:' + JSON.stringify(req.body));
     res.send(req.body);
 });
 // $.get(res, req)
@@ -33,15 +33,15 @@ console.log('here, app.js');
 
 
 /*  spotify login code  */
-app.get('/login', function(req, res) {
-    console.log('login');
+// app.get('/login', function(req, res) {
+    // console.log('login');
     // var scopes = 'user-read-private user-read-email';
     // res.redirect('https://accounts.spotify.com/authorize' +
     // '?response_type=code' +
     // '&client_id=' + my_client_id +
     // (scopes ? '&scope=' + encodeURIComponent(scopes) : '') +
     // '&redirect_uri=' + encodeURIComponent(redirect_uri));
-});
+// });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

@@ -121,34 +121,35 @@ function movePoint(eventArgs){
   }
 
 function submit(){
-  var vals = {
-      tempo: radii[0]/maxRadius,
-      valence: radii[1]/maxRadius,
-      danceability: radii[2]/maxRadius,
-      loudness: radii[3]/maxRadius,
-      energy: radii[4]/maxRadius
+    var vals = {
+        tempo: radii[0]/maxRadius,
+        valence: radii[1]/maxRadius,
+        danceability: radii[2]/maxRadius,
+        loudness: radii[3]/maxRadius,
+        energy: radii[4]/maxRadius
     };
 
-    console.log('pent::sub, v:', vals);
-    $(function () {
-        console.log('submited');
-
-        var data = {};
-        data.w = vals;
-        console.log('in jquery, w:', vals);
-        data.title = "title";
-        data.message = "message";
-        $.ajax({
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json',
-            url: 'http://localhost:3000',
-            success: function (data) {
-                console.log('success');
-                console.log(JSON.stringify(data));
-            }
-        });
-    });
+    nn_main(vals);
+    // console.log('pent::sub, v:', vals);
+    // $(function () {
+    //     console.log('submited');
+    //
+    //     var data = {};
+    //     data.w = vals;
+    //     console.log('in jquery, w:', vals);
+    //     data.title = "title";
+    //     data.message = "message";
+    //     $.ajax({
+    //         type: 'POST',
+    //         data: JSON.stringify(data),
+    //         contentType: 'application/json',
+    //         url: 'http://localhost:3000',
+    //         success: function (data) {
+    //             console.log('success');
+    //             console.log(JSON.stringify(data));
+    //         }
+    //     });
+    // });
 
   // nnsubmit(vals);
 }
