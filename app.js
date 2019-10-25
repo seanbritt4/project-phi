@@ -9,20 +9,21 @@ var indexRouter = require('./routes/index');    //index.js
 var usersRouter = require('./routes/users');    //users.js
 var app = express();
 
-// var nn
 /*
     NOTE:
     when including our own files from other directories,
     filepaths should look like this:
         './path/to/file'
 */
-var spotify = require('./phi_modules/spotify_API/sAPIhello.js');
 
-
+var spotify = require('./phi_modules/spotify_API/spotify_main.js');
 app.use(bparser.json());
+var body;
 app.post('/', function(req, res){
     var obj = {};
-    console.log('app.js, body:' + JSON.stringify(req.body));
+    body = JSON.stringify(req.body);
+    // console.log('app.js, body:' + body);
+    spotify.main(body); //send data to spotify_API/
     res.send(req.body);
 });
 
@@ -37,6 +38,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('./views/saveindex.hbs', indexRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

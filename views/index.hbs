@@ -2,6 +2,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- scripts -->
+{{! javascript graphic library}}
+<script src="js/jsgl.js" type="text/javascript"></script>
+{{!-- jQuery --}}
+<script type="text/javascript"
+src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
+</script>
 {{!-- modal/button functions--}}
 <script src='js/Modals.js' type='text/javascript'></script>
 {{!-- clientside TensorFlow; used in nn.js--}}
@@ -9,12 +15,11 @@
 document.getElementsByTagName('head')[0].appendChild(script)></script>
 {{!-- neural net js file --}}
 <script src="js/nn.js" type="text/javascript"></script>
+{{! input.js- used when 'get Started' is clicked }}
+<script src="js/pentagraph.js" type="text/javascript"></script>
 <!-- <script src="js/input.js" type="text/javascript"></script> -->
 <script src="js/login.js" type="text/javascript"></script>
-{{!-- jQuery --}}
-<script type="text/javascript"
-        src="//ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js">
-</script>
+
 <!-- style & fonts -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -22,8 +27,8 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
 
 <body>
     <!-- Navbar -->
-    <div class="top">
-        <div class="bar green card left-align large" id='welcome'>
+    <div class="top" id='welcome'>
+        <div class="bar green card left-align large">
             <a class="bar-item button hide-medium hide-large right padding-large hover-white large green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu">
                 <i class="fa fa-bars"></i>
             </a>
@@ -52,16 +57,6 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
                 </div>
             </div>
 
-            {{!-- hidden; selector/pentagraph --}}
-            <div id="selector" style="display: none;">
-                <script src="js/jsgl.js" type="text/javascript"></script>
-                <div id="panel" style ="width: 440px; height: 440px; position: absolute"></div>
-                    <script src="js/pentograph.js" type="text/javascript"></script>
-                    <button type="submit" class="button black padding-large large margin-top" id="submit" onclick="submit()" style="display: none;">
-                        Submit
-                    </button>
-                </div>
-            </div>
 
             <!-- Navbar on small screens -->
             <div id="navDemo" class="bar-block white hide hide-large hide-medium large">
@@ -71,10 +66,9 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
             </div>
         </div>
 
-        <!-- Header -->
-        <header class="container green center" style="padding:128px 16px">
+        <header  class="container green center" style="padding:128px 16px">
             <h1 class="margin jumbo">{{title}}</h1>
-            <button class="button black padding-large large margin-top" id="start">
+            <button class="button black padding-large large margin-top" id="start-button">
                 Get Started
             </button>
         </header>
@@ -90,4 +84,15 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
             }
         }
         </script>
-    </body>
+        {{!-- hidden; selector/pentagraph --}}
+    </div>
+    <div id="selector" class='container green center'>
+        <script src="js/jsgl.js" type="text/javascript"></script>
+        <!-- <div id="panel"></div> -->
+        <div id="panel" style ="width: 440px; height: 440px; position: center"></div>
+        {{!<script src="js/pentagraph.js" type="text/javascript"></script>}}
+        <button type="submit" class="button black padding-large large margin-top" id="submit" onclick="nnsubmit()">
+            Submit
+        </button>
+    </div>
+</body>
