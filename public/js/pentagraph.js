@@ -1,16 +1,29 @@
 var radii, maxRadius;
 
 $(function (){
-    $('#selector').hide()
+    $('#input').hide();
+    $('#login').hide();
+    $('#output').hide();
     $("#start-button").on('click', function(){
-        // $(this).hide();
-        $('.top').hide()
-        $('.welcome-page').hide()
-        $('#selector').show();
         console.log('getting started');
-        // $(this).hide();
+        $('advanced-options').hide();
+        $('.top').hide();
+        $('.welcome-page').hide();
+        $('#input').show();
         $('body').css("background-color: 'white'");
     });
+
+    $('adv-button').on('click', function(){
+        $('advanced-options').show();
+    });
+
+    /* May want to move, maybe to new file, maybe to .hbs?*/
+    $('#submit').on('click', function(){
+        $('#input').hide();
+        $('#output').show();
+
+
+    })
 
     // Determine if mouse is within a certain radius of another point
     function isInCircle(mx, my, px, py, radius){
@@ -129,22 +142,54 @@ $(function (){
         //document.getElementById("tempo").innerHTML = tempo;
     // }
 
-    function nnsubmit(){
-        var vals = {
-            tempo: radii[0]/maxRadius,
-            valence: radii[1]/maxRadius,
-            danceability: radii[2]/maxRadius,
-            loudness: radii[3]/maxRadius,
-            energy: radii[4]/maxRadius
-        };
+function submit(){
+    var vals = {
+        tempo: radii[0]/maxRadius,
+        valence: radii[1]/maxRadius,
+        danceability: radii[2]/maxRadius,
+        loudness: radii[3]/maxRadius,
+        energy: radii[4]/maxRadius
+    };
 
-        nn_main(vals);
-    }
+    // nn_main(vals);
 
-    function downvote(){
-        console.log("User does not like the playlist.");
-    }
+    $(function () {
+        var data = {};
+        data.user_values = vals;
+        // console.log('in jquery, user:', nn_output);
+        // data.title = "title";
+        // data.message = "message";
+        $.ajax({
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json',
+            url: 'http://localhost:3000',
+            success: function (data) {
+                console.log('success');
+                console.log(JSON.stringify(data));
+            }
+            // failure: console.log('failed to send data to app');
+        });
 
-    function upvote(){
-        console.log("User does like the playlist.");
-    }
+        // $.ajax({
+        //     type: 'GET',
+        //     data: JSON.stringify(data),
+        //     contentType: 'application/json',
+        //     url: 'http://localhost:3000',
+        //     success: function (data) {
+        //         console.log('success');
+        //         console.log(JSON.stringify(data));
+        //     }
+        //     // failure: console.log('failed to send data to app');
+        // });
+    });
+
+}
+
+function downvote(){
+    console.log("User does not like the playlist.");
+}
+
+function upvote(){
+    console.log("User does like the playlist.");
+}

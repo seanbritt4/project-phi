@@ -16,14 +16,17 @@ var app = express();
         './path/to/file'
 */
 
-var spotify = require('./phi_modules/spotify_API/spotify_main.js');
+var be_manager = require('./phi_modules/module_manager.js');
 app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
     var obj = {};
-    body = JSON.stringify(req.body);
+    body = req.body;
+    console.log('body:', req.body);
+    console.log('string\'d', JSON.stringify(req.body));
+    console.log(typeof req.body);
     // console.log('app.js, body:' + body);
-    spotify.main(body); //send data to spotify_API/
+    be_manager.main(body); //send data to spotify_API/
     res.send(req.body);
 });
 
