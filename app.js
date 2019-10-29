@@ -5,8 +5,9 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var bparser = require('body-parser');   //use to convert json body to strings when needed
-var indexRouter = require('./routes/index');    //index.js
-var usersRouter = require('./routes/users');    //users.js
+var indexRouter = require('./routes/index');          //index.js
+var usersRouter = require('./routes/users');          //users.js
+// var playlistRouter = require('./routes/playlist');    //playlist output
 var app = express();
 
 /*
@@ -22,12 +23,15 @@ var body;
 app.post('/', function(req, res){
     var obj = {};
     body = req.body;
-    console.log('body:', req.body);
-    console.log('string\'d', JSON.stringify(req.body));
-    console.log(typeof req.body);
-    // console.log('app.js, body:' + body);
-    be_manager.main(body); //send data to spotify_API/
-    res.send(req.body);
+    //debugging, see data recv'd from front end
+    console.log('app, body:', body)
+
+    var returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
+    console.log('returninfo: ', returninfo)
+    JSON.stringify(returninfo)
+    console.log('returninfo: ', returninfo)
+    res.send(returninfo);
+    // res.send(req.body);
 });
 
 // view engine setup
@@ -41,9 +45,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 // app.use('./views/saveindex.hbs', indexRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
+/*send playlist to playlist.hbs file?*/
+// app.use('./playlist', playlistRouter);
+// app.use(function(req,res,next){
+//
+// })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

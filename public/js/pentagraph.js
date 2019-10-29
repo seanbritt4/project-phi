@@ -151,38 +151,46 @@ function submit(){
         energy: radii[4]/maxRadius
     };
 
+    send(vals);
     // nn_main(vals);
 
-    $(function () {
-        var data = {};
-        data.user_values = vals;
-        // console.log('in jquery, user:', nn_output);
-        // data.title = "title";
-        // data.message = "message";
-        $.ajax({
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json',
-            url: 'http://localhost:3000',
-            success: function (data) {
-                console.log('success');
-                console.log(JSON.stringify(data));
-            }
-            // failure: console.log('failed to send data to app');
-        });
-
-        // $.ajax({
-        //     type: 'GET',
-        //     data: JSON.stringify(data),
-        //     contentType: 'application/json',
-        //     url: 'http://localhost:3000',
-        //     success: function (data) {
-        //         console.log('success');
-        //         console.log(JSON.stringify(data));
-        //     }
-        //     // failure: console.log('failed to send data to app');
-        // });
-    });
+    // $(function () {
+    //     var data = {};
+    //     data.user_values = vals;
+    //     // console.log('in jquery, user:', nn_output);
+    //     // data.title = "title";
+    //     // data.message = "message";
+    //     $.ajax({
+    //         type: 'POST',
+    //         data: JSON.stringify(data),
+    //         contentType: 'application/json',
+    //         url: 'http://localhost:3000',
+    //         success: function (data) {
+    //             console.log('success');
+    //             console.log(JSON.stringify(data));
+    //         };
+    //     });
+    //
+    //
+    //
+    //         // failure: console.log('failed to send data to app');
+    //     $.ajax({
+    //         type: 'GET',
+    //         data
+    //     })
+    //
+    //     // $.ajax({
+    //     //     type: 'GET',
+    //     //     data: JSON.stringify(data),
+    //     //     contentType: 'application/json',
+    //     //     url: 'http://localhost:3000',
+    //     //     success: function (data) {
+    //     //         console.log('success');
+    //     //         console.log(JSON.stringify(data));
+    //     //     }
+    //     //     // failure: console.log('failed to send data to app');
+    //     // });
+    // });
 
 }
 
