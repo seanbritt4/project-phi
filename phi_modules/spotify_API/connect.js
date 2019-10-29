@@ -4,7 +4,12 @@ var Spotify = require('spotify-web-api-node');
 exports.connect = function(call){
     console.log('in connect sp');
     //project phi info
-
+    var spotifyApi = new Spotify({
+        // clientId: '67c9bdb789854efc9b20b4c4c06ca0cb',
+        clientId: process.env.CLIENTID,
+        clientSecret: process.env.CLIENTSECRET
+        // clientSecret: '22132f38bf3e47b794903f9302b5be8e'
+    });
 
 
     spotifyApi.clientCredentialsGrant()

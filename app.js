@@ -4,6 +4,10 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//include environmental variables (db url, spotify api info)
+const dotenv = require('dotenv');
+dotenv.config();
+
 var bparser = require('body-parser');   //use to convert json body to strings when needed
 var indexRouter = require('./routes/index');          //index.js
 var usersRouter = require('./routes/users');          //users.js
@@ -16,6 +20,10 @@ var app = express();
     filepaths should look like this:
         './path/to/file'
 */
+
+console.log('id:', process.env.CLIENTID);
+console.log('secret:', process.env.CLIENTSECRET);
+console.log('url:', process.env.JAWSDB_URL);
 
 var be_manager = require('./phi_modules/module_manager.js');
 app.use(bparser.json());

@@ -19,8 +19,9 @@ function send(vals){
                 type: 'POST',                   //type of ajax call
                 data: JSON.stringify(data),     //prepares for flight
                 contentType: 'application/json',  //unsure...
-                // url: '/playlist/',     //
-                url: 'http://localhost:3000',     //destination, can use this more effectively
+                url: '/',     //
+                // url: JSON.stringify(process.env.PORT),     //destination, can use this more effectively
+                // url: 'http://localhost:3000',     //destination, can use this more effectively
                 success: function (data) {        //on success, recv's data from server
                     console.log('success, send', JSON.stringify(data));
                     console.log(data.values);
