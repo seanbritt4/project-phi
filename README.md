@@ -37,6 +37,7 @@ Dev notes:
   -At this moment, due to limited database resources, we have limited the songs available to each playlist. We hope to someday expand
   our capacity in the regard.
   
+  -we MUST remove the database url and Spotify api information before EVERY upload (working on a solution)
 
   
 TODO:
@@ -48,6 +49,8 @@ TODO:
   -neural net stuff (have placeholder nn for now, will need serious attention)
   
   -refined user input
+  
+  -find secure method for sensitive information (database and spotify api info)
   
   -*polish, polish, polish
   
