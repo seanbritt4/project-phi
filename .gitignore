@@ -1,2 +1,5 @@
-./gitignore
-/node_modules
+.gitignore
+#C:\Users\seanb\project-phi\.env
+#C:\Users\seanb\project-phi\node_modules
+.env
+./node_modules
