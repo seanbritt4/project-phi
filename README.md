@@ -28,9 +28,9 @@ Dev notes:
 
   
 TODO:
-  -!!!database must be populated asap!!!
-  -spotify stuff(user log in, export playlist to user profile, api calls on server)
-  -neural net stuff (have placeholder nn for now, will need serious attention)
-  -refined user input
-  -*polish, polish, polish
+  \n-!!!database must be populated asap!!!
+  \n-spotify stuff(user log in, export playlist to user profile, api calls on server)
+  \n-neural net stuff (have placeholder nn for now, will need serious attention)
+  \n-refined user input
+  \n-*polish, polish, polish
   
