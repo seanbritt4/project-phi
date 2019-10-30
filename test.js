@@ -1,6 +1,6 @@
 var modules = require('./phi_modules/module_manager.js')
 
-var w = [];
+var w = {};
 
 w.user_values = {
     "tempo":        Math.random(),

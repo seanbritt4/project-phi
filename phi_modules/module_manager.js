@@ -1,8 +1,8 @@
 var nn = require('./neural_network/nn_main');
-// var sp = require('./spotify_api/spotify_main');
-var db = require('./database/connect');
+var sp = require('./spotify_api/spotify_main');
+// var db = require('./database/connect');
 
-console.log('stupid here test');
+console.log('ATTN: spotify is currently not connecting');
 
 function round(n){
     //js doesnt like to round decimals...
