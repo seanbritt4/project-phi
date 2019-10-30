@@ -1,6 +1,6 @@
-var nn = require('./neural_network/nn_main.js');
-var sp = require('./spotify_api/spotify_main.js');
-var db = require('./database/connect.js');
+// var nn = require('./neural_network/nn_main.js');
+// var sp = require('./spotify_api/spotify_main.js');
+// var db = require('./database/connect.js');
 
 function round(n){
     // console.log('n',n);

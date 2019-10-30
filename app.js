@@ -23,7 +23,7 @@ var app = express();
 
 console.log('id:', process.env.CLIENTID);
 console.log('secret:', process.env.CLIENTSECRET);
-console.log('url:', process.env.JAWSDB_URL);
+console.log('url:', process.env.JAWSDB_CYAN_URL);
 
 var be_manager = require('./phi_modules/module_manager.js');
 app.use(bparser.json());
