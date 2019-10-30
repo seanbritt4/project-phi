@@ -1,13 +1,9 @@
-var nn = require('./neural_network/nn_main');
+//var nn = require('./neural_network/nn_main');
 var sp = require('./spotify_api/spotify_main');
 var db = require('./database/connect');
 
 function round(n){
-    // console.log('n',n);
-    // var z = Math.round(n*10000)/10000;
-    // console.log('z', z);
-    // console.log('typeof z', typeof z);
-    // return z;
+    //js doesnt like to round decimals...
     return Number(Math.round(n*10000)/10000);
 }
 
@@ -42,8 +38,6 @@ exports.main = function(user_input){
 
     //send weights and user values to nn
     // nn.nnMain(values, db_weights);
-
-
 
     /*
         user_values:
