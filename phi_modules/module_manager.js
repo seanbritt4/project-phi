@@ -2,6 +2,8 @@
 var sp = require('./spotify_api/spotify_main');
 var db = require('./database/connect');
 
+console.log('stupid here test');
+
 function round(n){
     //js doesnt like to round decimals...
     return Number(Math.round(n*10000)/10000);
