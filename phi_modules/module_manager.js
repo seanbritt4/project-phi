@@ -2,7 +2,7 @@ var nn = require('./neural_network/nn_main');
 // var sp = require('./spotify_api/spotify_main');
 var db = require('./database/connect');
 
-console.log('stupid here test');
+console.log('ATTN: spotify is currently not connecting live to heroku... working on a solution -SB');
 
 function round(n){
     //js doesnt like to round decimals...
