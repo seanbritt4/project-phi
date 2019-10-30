@@ -1,5 +1,5 @@
-//var nn = require('./neural_network/nn_main');
-var sp = require('./spotify_api/spotify_main');
+var nn = require('./neural_network/nn_main');
+// var sp = require('./spotify_api/spotify_main');
 var db = require('./database/connect');
 
 console.log('stupid here test');
