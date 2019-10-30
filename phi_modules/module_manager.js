@@ -1,6 +1,6 @@
-// var nn = require('./neural_network/nn_main.js');
-// var sp = require('./spotify_api/spotify_main.js');
-// var db = require('./database/connect.js');
+var nn = require('./neural_network/nn_main');
+var sp = require('./spotify_api/spotify_main');
+var db = require('./database/connect');
 
 function round(n){
     // console.log('n',n);
@@ -13,6 +13,7 @@ function round(n){
 
 exports.main = function(user_input){
     var input = user_input['user_values'];
+    var num_songs = user_input['num_songs'];
 
     //create array of user input data, easier to access in nn this way
     var values = []

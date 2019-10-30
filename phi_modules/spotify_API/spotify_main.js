@@ -1,10 +1,8 @@
-// var db = require('../database/queries.js');
 var spotify = require('./connect.js');
 
 //recieves data, makes N number of calls to DB, sending array of
 //  songs back to web page
-// exports.
-main = function(body){
+exports.main = function(body, num_songs){
 
     /* TRIED PASSING FUNCTION, HOPING TO MAKE CALLS THAT WAY... WILL COME BACK TO THIS
     spotify.connect(function(){
@@ -25,5 +23,3 @@ main = function(body){
     console.log('spotify.sendData:', body);
     // db.test(body);
 }
-
-main()

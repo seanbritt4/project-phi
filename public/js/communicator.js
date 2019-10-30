@@ -15,6 +15,7 @@ function send(vals){
             //along to the server
             var data = {};
             data.user_values = vals;    //stores vals in data
+            data.num_songs = 10;
             $.ajax({
                 type: 'POST',                   //type of ajax call
                 data: JSON.stringify(data),     //prepares for flight
@@ -24,10 +25,12 @@ function send(vals){
                 // url: 'http://localhost:3000',     //destination, can use this more effectively
                 success: function (data) {        //on success, recv's data from server
                     console.log('success, send', JSON.stringify(data));
-                    console.log(data.values);
+                    console.log(data);
                     // now we can do stuff with the data from the server
                     $("#output").append('Your playlist:');
-                    for(var i in data.values){
+                    // for(var i in data.num_songs){
+                    for(var i =0; i < data.num_songs; i++){
+                        // $('#output').append('<br>', data.values[i]);
                         $('#output').append('<br>', i);
                     }
                 }

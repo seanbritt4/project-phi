@@ -21,24 +21,21 @@ var app = express();
         './path/to/file'
 */
 
-console.log('id:', process.env.CLIENTID);
-console.log('secret:', process.env.CLIENTSECRET);
-console.log('url:', process.env.JAWSDB_CYAN_URL);
-
 var be_manager = require('./phi_modules/module_manager.js');
 app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
-    var obj = {};
     body = req.body;
+    var obj = {};
+    obj.num_songs = 10;
     //debugging, see data recv'd from front end
     console.log('app, body:', body)
 
-    var returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
-    console.log('returninfo: ', returninfo)
+    obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
+    console.log('returninfo: ', obj.returninfo)
     JSON.stringify(returninfo)
-    console.log('returninfo: ', returninfo)
-    res.send(returninfo);
+    console.log('returninfo: ', obj)
+    res.send(obj);
     // res.send(req.body);
 });
 
