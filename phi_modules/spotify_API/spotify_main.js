@@ -4,8 +4,9 @@ var spotify = require('./connect.js');
 //  songs back to web page
 exports.main = function(body, num_songs){
 
-    /* TRIED PASSING FUNCTION, HOPING TO MAKE CALLS THAT WAY... WILL COME BACK TO THIS
-    spotify.connect(function(){
+    // /* TRIED PASSING FUNCTION, HOPING TO MAKE CALLS THAT WAY... WILL COME BACK TO THIS
+    spotify.connect(
+        /*function(){
         // console.log('sAPI:', spotifyApi);
         console.log(spotifyApi['_credentials'].accessToken);
 
@@ -18,8 +19,8 @@ exports.main = function(body, num_songs){
             function(err) {
                 console.error('error:', err);
             });
-    });
-    */
+    }*/);
+    // */
     console.log('spotify.sendData:', body);
     // db.test(body);
 }

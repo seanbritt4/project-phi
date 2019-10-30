@@ -1,5 +1,5 @@
 var nn = require('./neural_network/nn_main');
-var sp = require('./spotify_api/spotify_main');
+var sp = require('./spotify_api/spotify_main.js');
 // var db = require('./database/connect');
 
 console.log('ATTN: spotify is currently not connecting');
@@ -37,6 +37,8 @@ exports.main = function(user_input){
 
     console.log('module_manager, db_weights:\t', db_weights);
 
+
+    sp.main();
 
     //send weights and user values to nn
     // nn.nnMain(values, db_weights);
