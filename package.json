@@ -10,7 +10,6 @@
     "npm": "6.9.0"
   },
   "dependencies": {
-    "@tensorflow/tfjs-node": "^1.2.11",
     "canvas": "^2.6.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",

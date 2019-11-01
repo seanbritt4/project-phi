@@ -21,7 +21,10 @@ var app = express();
         './path/to/file'
 */
 
+console.log('ATTN: nn is not connected');
+
 var be_manager = require('./phi_modules/module_manager.js');
+be_manager.main();
 app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
@@ -31,7 +34,7 @@ app.post('/', function(req, res){
     //debugging, see data recv'd from front end
     console.log('app, body:', body)
 
-    obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
+    // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
     console.log('returninfo: ', obj.returninfo)
     JSON.stringify(returninfo)
     console.log('returninfo: ', obj)
