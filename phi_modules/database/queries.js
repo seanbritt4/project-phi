@@ -1,7 +1,10 @@
-var connection = require('./connect.js')
+var db = require('./connect.js')
 
-exports.select = function(query) {
-    console.log('EXAMPLE: in select', query);
+exports.select = function(str, table) {
+    var query = 'SELECT '.concat(str, ' from ', table);
+    console.log('query:', query);
+
+    // db.query(query);
 }
 
 exports.insert = function(query){
@@ -14,3 +17,4 @@ exports.test = function(msg){
 }
 // exports.createQuery = function(query, content){
 // }
+

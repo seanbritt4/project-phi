@@ -5,6 +5,6 @@ var spotify = require('./connect');
 exports.main = function(body, num_songs){
 // exports.main = function(body, num_songs){
     console.log('in spotify main');
-    spotify.connect();
+    spotify.connectPhi();
     // console.log('spotify.sendData:', body);
 }

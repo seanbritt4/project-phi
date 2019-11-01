@@ -1,16 +1,18 @@
 // var nn = require('./neural_network/nn_main');
 var sp = require('./spotify_api/spotify_main');
-// var db = require('./database/connect');
+var db = require('./database/queries');
 
 function round(n){
     //js doesnt like to round decimals...
     return Number(Math.round(n*10000)/10000);
 }
 
-exports.main = function(){
-// exports.main = function(user_input){
+// exports.main = function(){
+exports.main = function(user_input){
     sp.main();
 
+    //test db stuff here...
+    // db.select('Post Malone', '*');
     
     /*
     var input = user_input['user_values'];
