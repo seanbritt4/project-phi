@@ -13,8 +13,7 @@ exports.main = function(user_input){
 
     //test db stuff here...
     // db.select('Post Malone', '*');
-    
-    /*
+
     var input = user_input['user_values'];
     var num_songs = user_input['num_songs'];
 
@@ -48,12 +47,11 @@ exports.main = function(user_input){
     //send weights and user values to nn
     // nn.nnMain(values, db_weights);
 
-    /*
-        user_values:
-            tempo, valence, danceability, loudness, energy
-    /
+
+        // user_values:
+            // tempo, valence, danceability, loudness, energy
     // user_input.
     returninfo = {};
     returninfo.values = values;
-    return returninfo;*/
+    return returninfo;
 }
