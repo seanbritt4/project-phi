@@ -24,9 +24,12 @@ $(function (){
 
     })
 
-	function showCoordinates(event) {
-		var tx = event.touches[0].clientX;
-		var ty = event.touches[0].clientY;
+	var touchX = -1; //x and y coords for touchscreens
+	var touchY = -1;
+
+	function updateTouchCoords(event) {
+		touchX = event.touches[0].clientX;
+		touchY = event.touches[0].clientY;
 		document.getElementById("touchdemo").innerHTML = tx + ", " + ty;
 	}
     // Determine if mouse is within a certain radius of another point
@@ -45,8 +48,9 @@ $(function (){
         return dis;
     }
 
-	document.getElementById("panel").ontouchstart = showCoordinates;
-	document.getElementById("panel").ontouchmove = showCoordinates;
+	document.getElementById("panel").ontouchstart = clickHandler;
+	document.getElementById("panel").ontouchmove = movePoint;
+	document.getElementById("panel").ontouchend = releaseHandler;
     myPanel = new jsgl.Panel(document.getElementById("panel"));
 /*	<html>
 	<body ontouchstart="showcoordinates(event)"
@@ -103,6 +107,7 @@ $(function (){
     var clicked = "false";
     var selected = -1;
     function clickHandler(eventArgs){
+		updateTouchCoords();
         clicked = "true";
     }
 
@@ -120,6 +125,9 @@ $(function (){
     myPanel.addMouseMoveListener(movePoint);
     //myPanel.addMouseOutListener(releaseHandler);
     function movePoint(eventArgs){
+		if(touchX !== -1){
+			updateTouchCoords();
+		}
 
         if(clicked === "true"){
             for(var i = 0; i < polygon.getPointsCount(); i++){
