@@ -30,7 +30,7 @@ $(function (){
 	function updateTouchCoords(event) {
 		touchX = event.touches[0].clientX;
 		touchY = event.touches[0].clientY;
-		document.getElementById("touchdemo").innerHTML = tx + ", " + ty;
+		document.getElementById("touchdemo").innerHTML = touchX + ", " + touchY;
 	}
     // Determine if mouse is within a certain radius of another point
     function isInCircle(mx, my, px, py, radius){
