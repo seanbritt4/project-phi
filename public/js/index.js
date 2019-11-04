@@ -1,10 +1,23 @@
+// jQuery.fn.center = function () {
+//     this.css("position", "absolute");
+//     this.css("top", Math.max(0, ( 3 * ($(window).height() - $(this).outerHeight()) / 4) +
+//         $(window).scrollTop()) + "px");
+//     this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+//         $(window).scrollLeft()) + "px");
+//     return this;
+// }
+
 $(document).ready(()=>{
     $('#input').hide()
     $('#output').hide()
     $('#about-info').hide()
 
+    // $('.center').center()
+
     $('#about-button').on('click', () => {
         $('#about-info').fadeToggle()
+        $('#restart').fadeToggle()
+        $('#start-button').fadeToggle()
     })
 
     $('#start-button').on('click', ()=>{

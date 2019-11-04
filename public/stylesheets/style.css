@@ -79,6 +79,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .padding-32{padding-top:32px!important;padding-bottom:32px!important}.padding-48{padding-top:48px!important;padding-bottom:48px!important}
 .padding-64{padding-top:64px!important;padding-bottom:64px!important}
 .left{float:left!important}.right{float:right!important}
+.center{float:right!important}
 .button:hover{color:#000!important;background-color:#ccc!important}
 .transparent,.hover-none:hover{background-color:transparent!important}
 .hover-none:hover{box-shadow:none!important}

@@ -22,7 +22,6 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
 
 <body class="green" style="padding:128px 16px">
             <h1 id='title' class="margin jumbo">{{title}}</h1>
-            <br>
             <button id='start-button' class="container button left black padding-large large margin-top">
                 Get Started
             </button>
@@ -31,18 +30,21 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
             </button>
 
         <div id='about-info'>
-            <h1>What We Are</h1>
+            <br><br><br>
+            <h1>About Project PHI</h1>
             <h5 class="padding-32">Phi is a web application that allows you, the user, to generate a
                 playlist based on your mood. This is accomplished through the answering of several questions
                 asked through our interface.
             </h5>
-
             <p class="text-grey">These questions that are answered return to the AI a set of values that
                 are then compared to our database of songs, provided to us through Spotify. Any songs that meet
                 the criteria given are placed into a playlist. Simply log in with your Spotify account and get
                 started! *Disclosure: We do not save any account information, all login credentials are stored
                 through Spotify.*</p>
-            </p>
+            <h3>About the Team</h3>
+            <p class='text-grey padding-32'>We are a team of Computer Science students at Salisbury University with
+                interests in Machine Learning, Web Development, and general Software engineering.
+                Sean Brittingham</p>
         </div>
     <div id="input">
         <div id='advanced-options'>
@@ -52,20 +54,15 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
             <div id='genre-form'>
                 <input type='text' value='genre'>
             </div>
-            <div id='advanced-input'>
-                {{!-- <span>50</span>
-                <span>50</span>
-                <span>50</span>
-                <span>50</span>
-                <span>50</span> --}}
-                Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo">
-                Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence">
-                Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity">
-                Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness">
-                Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness">
+            <div id='advanced-input'><br>
+                Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo"><br>
+                Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence"><br>
+                Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity"><br>
+                Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness"><br>
+                Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness"><br>
             </div>
 
-            <button type="button" class="button black large margin-top center" id="advanced-button">
+            <button type="button" class="button black large margin-top right" id="advanced-button">
                 Advanced Options
             </button>
         <button id='submit-button' type="submit" class="button left black large margin-top">
@@ -79,7 +76,7 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
             Export to Spotify
         </button>
     </div>
-    <button type='submit' class="button black large margin-top right" id="restart" method='post'>
+    <button type='submit' class="button black large margin-top center" id="restart" method='post'>
         Start Over
     </button><br>
 </body>
