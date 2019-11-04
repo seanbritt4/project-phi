@@ -106,9 +106,9 @@ $(function (){
 
     var clicked = "false";
     var selected = -1;
-    function clickHandler(eventArgs){
+    function clickHandler(event){
 		document.getElementById("touchdemo").innerHTML = "fuck";
-		updateTouchCoords(eventArgs);
+		updateTouchCoords(event);
         clicked = "true";
     }
 
@@ -125,9 +125,9 @@ $(function (){
     myPanel.addMouseUpListener(releaseHandler);
     myPanel.addMouseMoveListener(movePoint);
     //myPanel.addMouseOutListener(releaseHandler);
-    function movePoint(eventArgs){
+    function movePoint(event){
 		if(touchX !== -1){
-			updateTouchCoords(eventArgs);
+			updateTouchCoords(event);
 		}
 
         if(clicked === "true"){
