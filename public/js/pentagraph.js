@@ -27,7 +27,7 @@ $(function (){
 	function showCoordinates(event) {
 		var tx = event.touches[0].clientX;
 		var ty = event.touches[0].clientY;
-		document.getElementById("touchdemo").innerHTML = x + ", " + y;
+		document.getElementById("touchdemo").innerHTML = tx + ", " + ty;
 	}
     // Determine if mouse is within a certain radius of another point
     function isInCircle(mx, my, px, py, radius){
@@ -46,6 +46,7 @@ $(function (){
     }
 
 	document.getElementById("panel").ontouchstart = showCoordinates;
+	document.getElementById("panel").ontouchmove = showCoordinates;
     myPanel = new jsgl.Panel(document.getElementById("panel"));
 /*	<html>
 	<body ontouchstart="showcoordinates(event)"
@@ -92,6 +93,7 @@ $(function (){
     }
 
 
+	
     text[0].setText("Tempo");
     text[1].setText("Happiness");
     text[2].setText("Danceability");
