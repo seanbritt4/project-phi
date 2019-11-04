@@ -48,8 +48,8 @@ $(function (){
         return dis;
     }
 
-	document.getElementById("panel").ontouchstart = clickHandler;
-	document.getElementById("panel").ontouchmove = movePoint;
+	document.getElementById("panel").ontouchstart = clickHandler(event);
+	document.getElementById("panel").ontouchmove = movePoint(event);
 	document.getElementById("panel").ontouchend = releaseHandler;
     myPanel = new jsgl.Panel(document.getElementById("panel"));
 /*	<html>
@@ -108,7 +108,7 @@ $(function (){
     var selected = -1;
     function clickHandler(eventArgs){
 		document.getElementById("touchdemo").innerHTML = "fuck";
-		updateTouchCoords();
+		updateTouchCoords(eventArgs);
         clicked = "true";
     }
 
@@ -127,7 +127,7 @@ $(function (){
     //myPanel.addMouseOutListener(releaseHandler);
     function movePoint(eventArgs){
 		if(touchX !== -1){
-			updateTouchCoords();
+			updateTouchCoords(eventArgs);
 		}
 
         if(clicked === "true"){
