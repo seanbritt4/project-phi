@@ -27,7 +27,7 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<body ontouchstart="showCoordinates(event)" ontouchmove="showCoordinates(event)" class="green">
+<body class="green">
     <!-- Navbar -->
     <div class="top" id='welcome'>
         <div class="bar green card left-align large">
@@ -93,10 +93,12 @@ document.getElementsByTagName('head')[0].appendChild(script)></script>
             <script src="js/jsgl.js" type="text/javascript"></script>
             <!-- <div id="panel"></div> -->
             <div id="panel" style ="width: 440px; height: 440px; position: center"></div>
+			<p>Coordinates<span id="touchdemo"></span></p>
             {{!<script src="js/pentagraph.js" type="text/javascript"></script>}}
             <button type="submit" class="button black large margin-top" id="submit" onclick="submit()">
                 Submit
             </button>
+			<p>ontouchstart="showCoordinates(event)" ontouchmove="showCoordinates(event)"</p>
         </div>
         <div id="advanced-options" class='right-align'>
             <button type="button" class="button black " id="advanced">
