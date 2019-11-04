@@ -107,6 +107,7 @@ $(function (){
     var clicked = "false";
     var selected = -1;
     function clickHandler(eventArgs){
+		document.getElementById("touchdemo").innerHTML = "fuck";
 		updateTouchCoords();
         clicked = "true";
     }
