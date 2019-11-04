@@ -4,48 +4,49 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//include environmental variables (db url, spotify api info)
+//include environmental variables (db url)
 const dotenv = require('dotenv');
 dotenv.config();
 
 var bparser = require('body-parser');   //use to convert json body to strings when needed
-var indexRouter = require('./routes/index');          //index.js
-var usersRouter = require('./routes/users');          //users.js
-// var playlistRouter = require('./routes/playlist');    //playlist output
+var indexRouter = require('./routes/index');    //index.js
+var usersRouter = require('./routes/users');    //users.js
+var inputRouter = require('./routes/input');    //about.js
 var app = express();
-
-/*
-    NOTE:
-    when including our own files from other directories,
-    filepaths should look like this:
-        './path/to/file'
-*/
 
 console.log('ATTN: nn is not connected');
 
 var be_manager = require('./phi_modules/module_manager.js');
-be_manager.main();
 app.use(bparser.json());
-var body;
 app.post('/', function(req, res){
-    body = req.body;
-    var obj = {};
-    obj.num_songs = 10;
-    //debugging, see data recv'd from front end
-    console.log('app, body:', body)
-
-    // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
-    console.log('returninfo: ', obj.returninfo)
-    JSON.stringify(returninfo)
-    console.log('returninfo: ', obj)
-    res.send(obj);
-    // res.send(req.body);
+    // var body;
+    // body = req.body;
+    // var obj = {};
+    // obj.num_songs = 10;
+    // //debugging, see data recv'd from front end
+    // console.log('app, body:', body)
+    //
+    // // send data to nn
+    // be_manager.main(body);
+    //
+    // // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
+    // console.log('returninfo: ', obj.returninfo)
+    // JSON.stringify(returninfo)
+    // console.log('returninfo: ', obj)
+    // res.send(obj);
+    next();
 });
+
+app.get('input', function(req, res){
+//     inputRouter();
+
+    console.log('here, get BEasdl');
+    res.send('input');
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-// app.set('view engine' , 'pug');
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -53,16 +54,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-// app.use('./views/saveindex.hbs', indexRouter);
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
-/*send playlist to playlist.hbs file?*/
-// app.use('./playlist', playlistRouter);
-// app.use(function(req,res,next){
-//
-// })
+app.use('/input', inputRouter);
+// app.use('/users', usersRouter);
 
 
 // catch 404 and forward to error handler
