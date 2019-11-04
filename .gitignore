@@ -1,3 +1,14 @@
 .env
-./test.js
+test.js
 node_modules
+alex-todo
+artists
+artists_info
+artists_info1
+populate.js
+scrape-limited.js
+scrape.js
+scrape1.js
+test_artists
+test_artists
+test_info

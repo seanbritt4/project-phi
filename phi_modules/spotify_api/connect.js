@@ -24,7 +24,7 @@ exports.connectPhi = function(){
     .then(function(){
         // console.log('token:', sotifyApi.getAccessToken());
 
-        // var artists = ['Drake', 'Ariana Grande','Billie Eilish', "Maroon 5"]
+        // var artists = ['Drake', 'Ariana Grande','Billie Eilish', "Maroon "]
         spotifyApi.searchArtists("Billie Eilish")
         .then(function(data) {
             // console.log('Search artists by Drake:', data.body);
