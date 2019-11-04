@@ -21,7 +21,7 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body class="green" style="padding:128px 16px">
-            <h1 id='welcome' class="margin jumbo">{{title}}</h1>
+            <h1 id='title' class="margin jumbo">{{title}}</h1>
             <br>
             <button id='start-button' class="container button left black padding-large large margin-top">
                 Get Started
@@ -48,7 +48,7 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
         <div id='advanced-options'>
             <div class='slidecontainer'>
             </div>
-            <br>
+            {{!-- <br> --}}
             <div id='genre-form'>
                 <input type='text' value='genre'>
             </div>
@@ -65,7 +65,7 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
                 Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness">
             </div>
 
-            <button type="button" class="button black large margin-top right" id="advanced">
+            <button type="button" class="button black large margin-top center" id="advanced-button">
                 Advanced Options
             </button>
         <button id='submit-button' type="submit" class="button left black large margin-top">
@@ -78,8 +78,8 @@ src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js">
         <button type='submit' class="button black large margin-top right" id="export-button">
             Export to Spotify
         </button>
-        <button type='submit' class="button black large margin-top left" id="restart" method='post'>
-            Start Over
-        </button><br>
     </div>
+    <button type='submit' class="button black large margin-top right" id="restart" method='post'>
+        Start Over
+    </button><br>
 </body>

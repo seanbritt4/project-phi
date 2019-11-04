@@ -3,27 +3,28 @@ $(document).ready(()=>{
     $('#output').hide()
     $('#about-info').hide()
 
-    $('#about').on('click', () => {
-        $('#about-info').toggle()
-    });
+    $('#about-button').on('click', () => {
+        $('#about-info').fadeToggle()
+    })
 
     $('#start-button').on('click', ()=>{
-        $('#welcome').hide()
         $('#start-button').hide()
         $('#about-button').hide()
         $('#about-info').hide()
+        $('#advanced-input').hide()
+        $('#title').fadeOut()
         $('#input').show()
         $('submit-button').show()
         $('#advanced').show()
-        $('#advanced-input').hide()
+    })
+    
+    $('tempo[type=range').on('input', () => {
+        console.Console.log('slider moved', this.value);
+        $(this).trigger('change');
     })
 
-    $('#advanced-options').on('click', () => {
-        $('#advanced-input').show()
-        $('tempo[type=range').on('input', () => {
-            console.Console.log('slider moved', this.value);
-            $(this).trigger('change');
-        })
+    $('#advanced-button').on('click', () => {
+        $('#advanced-input').toggle()
 
         console.log('advanced')
     });
