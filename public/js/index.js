@@ -1,41 +1,40 @@
 $(document).ready(()=>{
-    $('#input').toggle()
-    $('#output').toggle()
-    $('#about-div').toggle()
-
-    $('#start').on('click', ()=>{
-        $('#start').toggle()
-        $('#input').toggle()
-        $('#welcome').toggle()
-        $('#about').toggle()
-
-        console.log('here, get input')
-        // $.ajax({
-        //     type: 'post',
-        //     url: '/input'
-        // })
-    })
+    $('#input').hide()
+    $('#output').hide()
+    $('#about-info').hide()
 
     $('#about').on('click', () => {
-        $('#about-div').toggle()
-        console.log('about')
+        $('#about-info').toggle()
     });
 
+    $('#start-button').on('click', ()=>{
+        $('#welcome').hide()
+        $('#start-button').hide()
+        $('#about-button').hide()
+        $('#about-info').hide()
+        $('#input').show()
+        $('submit-button').show()
+        $('#advanced').show()
+        $('#advanced-input').hide()
+    })
+
     $('#advanced-options').on('click', () => {
-        // $('#about-div').show()
+        $('#advanced-input').show()
+        $('tempo[type=range').on('input', () => {
+            console.Console.log('slider moved', this.value);
+            $(this).trigger('change');
+        })
+
         console.log('advanced')
     });
-    $('#export').on('click', () => {
-        // $('#about-div').show()
+    $('#export-button').on('click', () => {
         console.log('export')
     });
     $('#restart').on('click', () => {
-        // $('#about-div').show()
         location.reload();
-        console.log('restart')
     });
 
-    $('#submit').on('click', ()=> {
+    $('#submit-button').on('click', ()=> {
         // console.log('in submit');
         //declares data variable, will be used to store data and pass it
         //along to the server
@@ -53,14 +52,14 @@ $(document).ready(()=>{
                 console.log('success, send', JSON.stringify(data));
                 console.log(data);
                 // now we can do stuff with the data from the server
-                $("#output").append('<b>Your playlist:</b><br><ul>');
+                $("#playlist").append('<b>Your playlist:</b><br><ul>');
                 // for(var i in data.num_songs){
                 for(var i=0; i<data.num_songs; i++){
                     // $('#output').append('<br>', data.values[i]);
                     // $('#output').append(i, '<br>');
-                    $('#output').append('<li>', i, '</li>');
+                    $('#playlist').append('<li>', i, '</li>');
                 }
-                $("#output").append('</ul>');
+                $("#playlist").append('</ul>');
             }
         });
 

@@ -19,21 +19,21 @@ console.log('ATTN: nn is not connected');
 var be_manager = require('./phi_modules/module_manager.js');
 app.use(bparser.json());
 app.post('/', function(req, res){
-    // var body;
-    // body = req.body;
-    // var obj = {};
-    // obj.num_songs = 10;
-    // //debugging, see data recv'd from front end
-    // console.log('app, body:', body)
-    //
-    // // send data to nn
-    // be_manager.main(body);
-    //
-    // // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
-    // console.log('returninfo: ', obj.returninfo)
-    // JSON.stringify(returninfo)
-    // console.log('returninfo: ', obj)
-    // res.send(obj);
+    var body;
+    body = req.body;
+    var obj = {};
+    obj.num_songs = 10;
+    //debugging, see data recv'd from front end
+    console.log('app, body:', body)
+
+    // send data to nn
+    be_manager.main(body);
+
+    // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
+    console.log('returninfo: ', obj.returninfo)
+    JSON.stringify(returninfo)
+    console.log('returninfo: ', obj)
+    res.send(obj);
     next();
 });
 
