@@ -45,6 +45,7 @@ $(function (){
         return dis;
     }
 
+	document.getElementById("panel").ontouchstart = showCoordinates;
     myPanel = new jsgl.Panel(document.getElementById("panel"));
 /*	<html>
 	<body ontouchstart="showcoordinates(event)"
