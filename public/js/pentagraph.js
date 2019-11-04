@@ -27,7 +27,7 @@ $(function (){
 	function showCoordinates(event) {
 		var tx = event.touches[0].clientX;
 		var ty = event.touches[0].clientY;
-		document.getElementById("demo").innerHTML = x + ", " + y;
+		document.getElementById("touchdemo").innerHTML = x + ", " + y;
 	}
     // Determine if mouse is within a certain radius of another point
     function isInCircle(mx, my, px, py, radius){
