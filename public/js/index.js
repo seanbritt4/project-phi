@@ -11,6 +11,7 @@ $(document).ready(()=>{
     $('#input').hide()
     $('#output').hide()
     $('#about-info').hide()
+	$('#emoji-slider').hide()
 
     // $('.center').center()
 
@@ -29,8 +30,11 @@ $(document).ready(()=>{
         $('#input').show()
         $('submit-button').show()
         $('#advanced').show()
+		$('#emoji-slider').show()
     })
-    
+
+
+
     $('tempo[type=range').on('input', () => {
         console.Console.log('slider moved', this.value);
         $(this).trigger('change');
@@ -79,6 +83,7 @@ $(document).ready(()=>{
 
         $('#input').hide();
         $('#output').show();
+        $('#emoji-slider').hide();
     })
 
 })

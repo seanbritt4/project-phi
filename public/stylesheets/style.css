@@ -88,7 +88,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 
 .aboutModal{
     display: none;
-    position: fixed;
+    position: relative;
     z-index: 1;
     left: 0;
     top: 0;
@@ -126,7 +126,8 @@ body,h1,h2,h3,h4,h5,h6 {
 }
 
 .bar,h1,button {
-    font-family: "Montserrat", sans-serif
+    font-family: "Montserrat", sans-serif;
+    position: relative;
 }
 
 {
