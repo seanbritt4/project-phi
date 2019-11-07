@@ -174,3 +174,7 @@ function setMouseDownPhone(e){
 function setMouseUp(){
 	mouseDown = false;
 }
+
+function submit(){
+	return valuePresets[selected];
+}
