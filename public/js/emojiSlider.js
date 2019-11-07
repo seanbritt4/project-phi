@@ -54,11 +54,12 @@ window.onload = function() {
 
 
 
-	//mousedown touchstart
-
+	smallEmojiSize = window.screen.width * 0.029;
+	bigEmojiSize = window.screen.width * 0.044;
 
 	var elem = document.getElementById("emoji-slider");
-	elem.style.left = (elem.offsetLeft)+ ((window.screen.width/2) - 330) + "px";
+	var offset = smallEmojiSize * 8;
+	elem.style.left = (elem.offsetLeft)+ ((window.screen.width/2) - offset) + "px";
 	emojis[0].setAttribute("src", "js/emojis/BigSmile.png");
 	emojis[1].setAttribute("src", "js/emojis/ForcedSmile.png");
 	emojis[2].setAttribute("src", "js/emojis/NormalSmile.png");
@@ -76,8 +77,7 @@ window.onload = function() {
 	emojis[14].setAttribute("src", "js/emojis/Devilish.png");
 	emojis[15].setAttribute("src", "js/emojis/Poop.png");
 
-	smallEmojiSize = window.screen.width * 0.029;
-	bigEmojiSize = window.screen.width * 0.044;
+
 	for(var i = 0; i < emojis.length; i++){
 		emojis[i].setAttribute("width", smallEmojiSize);
 		emojis[i].setAttribute("height", smallEmojiSize);
