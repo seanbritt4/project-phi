@@ -43,11 +43,12 @@ var mouseX;
 var amountMoved = 0;
 var bigEmojiSize;
 var smallEmojiSize;
+var usingSmartPhone = false;
 
 window.onload = function() {
 	document.getElementById("emoji-slider").addEventListener("mousedown", setMouseDown);
 	document.addEventListener("mouseup", setMouseUp);
-	document.getElementById("emoji-slider").addEventListener("touchstart", setMouseDown);
+	document.getElementById("emoji-slider").addEventListener("touchstart", setMouseDownPhone);
 	document.addEventListener("touchend", setMouseUp);
 	document.addEventListener("touchmove", slide);
 	document.addEventListener("mousemove", slide);
@@ -102,38 +103,72 @@ function setSelected(s){
 
 
 function slide(e){
-	if(mouseDown === true){
-		var elem = document.getElementById("emoji-slider");
+	if(usingSmartPhone === true){
+		if(mouseDown === true){
+			var elem = document.getElementById("emoji-slider");
 
-		if(selected === 0 && (e.clientX - mouseX) < 0){
-			elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
-			amountMoved = amountMoved + (e.clientX - mouseX);
-			mouseX = e.clientX;	
-		} else if(selected === emojis.length-1 && (e.clientX - mouseX) > 0){
-			elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
-			amountMoved = amountMoved + (e.clientX - mouseX);
-			mouseX = e.clientX;
-		} else if(selected > 0 && selected < emojis.length-1) {
-			elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
-			amountMoved = amountMoved + (e.clientX - mouseX);
-			mouseX = e.clientX;	
+			if(selected === 0 && (e.changedTouches[0].clientX - mouseX) < 0){
+				elem.style.left = (elem.offsetLeft + (e.changedTouches[0].clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.changedTouches[0].clientX - mouseX);
+				mouseX = e.changedTouches[0].clientX;	
+			} else if(selected === emojis.length-1 && (e.changedTouches[0].clientX - mouseX) > 0){
+				elem.style.left = (elem.offsetLeft + (e.changedTouches[0].clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.changedTouches[0].clientX - mouseX);
+				mouseX = e.changedTouches[0].clientX;
+			} else if(selected > 0 && selected < emojis.length-1) {
+				elem.style.left = (elem.offsetLeft + (e.changedTouches[0].clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.changedTouches[0].clientX - mouseX);
+				mouseX = e.changedTouches[0].clientX;	
+			}
+
+			
+			if(amountMoved <= (bigEmojiSize / 2)*-1){
+				setSelected(selected+1);
+				amountMoved = 0;
+			} else if(amountMoved >= (bigEmojiSize / 2)){
+				setSelected(selected-1);
+				amountMoved = 0;
+			}
 		}
+	} else {
+		if(mouseDown === true){
+			var elem = document.getElementById("emoji-slider");
 
-		
-		if(amountMoved <= (bigEmojiSize / 2)*-1){
-			setSelected(selected+1);
-			amountMoved = 0;
-		} else if(amountMoved >= (bigEmojiSize / 2)){
-			setSelected(selected-1);
-			amountMoved = 0;
+			if(selected === 0 && (e.clientX - mouseX) < 0){
+				elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.clientX - mouseX);
+				mouseX = e.clientX;	
+			} else if(selected === emojis.length-1 && (e.clientX - mouseX) > 0){
+				elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.clientX - mouseX);
+				mouseX = e.clientX;
+			} else if(selected > 0 && selected < emojis.length-1) {
+				elem.style.left = (elem.offsetLeft + (e.clientX - mouseX)) + "px";
+				amountMoved = amountMoved + (e.clientX - mouseX);
+				mouseX = e.clientX;	
+			}
+
+			
+			if(amountMoved <= (bigEmojiSize / 2)*-1){
+				setSelected(selected+1);
+				amountMoved = 0;
+			} else if(amountMoved >= (bigEmojiSize / 2)){
+				setSelected(selected-1);
+				amountMoved = 0;
+			}
 		}
-
-	}
+	}	
 }
 
 function setMouseDown(e){
 	mouseDown = true;
 	mouseX = e.clientX;
+}
+
+function setMouseDownPhone(e){
+	mouseDown = true;
+	mouseX = e.changedTouches[0].clientX;
+	usingSmartPhone = true;
 }
 
 function setMouseUp(){
