@@ -1,11 +1,19 @@
 ﻿# project-phi
 
-Version 0.0.2
-Known Issues:
+Version 0.8
 Incomplete;
- TODO: connect db, build and implement nn, 
-Communication backend->front, user login
-
- LATER: caching user login, refine nn,
-Add user weights, style, alternative user input
-Methods
+ TODO: 
+  NN:
+   rework nn
+   add functionality to save the nn
+  DB:
+   build query strings to query the DB
+   convert DB return data into JS objects for NN to use
+  Data Flow:
+   rework FE->BE data flow
+   rework genre input
+   fix (broken) advanced input, get input from sliders
+   format output on website (lavalamp?!?!)
+   add user login
+  Web Design:
+   add page redirects
