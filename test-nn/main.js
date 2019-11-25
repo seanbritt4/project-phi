@@ -2,7 +2,7 @@ var tf = require('@tensorflow/tfjs-node');
 const fs = require('fs');
 const readline = require('readline');
 
-function perceptron(u, w){
+exports.perceptron= function(u, w){
     /* creates a model where layers stack one on top of another*/
     const model = tf.sequential();
 
@@ -53,43 +53,3 @@ function perceptron(u, w){
 
 
 }
-
-
-/*
-acousticness        float 0.0-1.0
-danceability        float 0.0-1.0
-energy              float 0.0-1.0
-instrumentalness    float 0.0-1.0
-keyy                int 0-23?
-liveness            float -60.0 - 0.0
-loudness            float 0.0-1.0
-mode                int 0-6?
-speechiness         float 0.0-1.0
-tempo               float 0.0-250.0
-time_signature      int
-valence             float 0.0-1.0
-*/
-
-// audio_features(5WrEilrRI5cIW0DxMvQYPZ, 0.0139, 0.74, 251293, 0.835, 0, 10, 0.857, -3.425, 0, 0.0839, 123.024, 4, 0.535)
-
-function round(n){
-    n *= 10000;
-    n = Math.round(n);
-    n /= 10000;
-    return n;
-}
-
-
-const readSongInfo = readline.createInterface({
-    input: fs.createReadStream('../scraper/audio_info'),
-    output: process.stdout,
-    console: false
-})
-
-readSongInfo.on('line', function(line){
-    var user_values = json.parse('[' + line + ']')
-    var nn_weights = [0.0139, 0.74, 0.835, 0, 10, 0.857, -3.425, 0, 0.0839, 123.024, 4, 0.535];
-    console.log('nnMain:', user_values);
-    console.log('nnMain:', nn_weights);
-    // perceptron(user_values, nn_weights)    
-})
