@@ -51,7 +51,7 @@ $(document).ready(() => {
         })
 
         $('tempo[type=range').on('input', () => {
-          console.Console.log('slider moved', this.value);
+          console.log('slider moved', this.value);
           $(this).trigger('change');
         })
 
