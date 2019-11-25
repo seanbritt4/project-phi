@@ -1,3 +1,6 @@
 .env
-./test.js
+test.js
 node_modules
+alex-todo
+scraper
+nn-test

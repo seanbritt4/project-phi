@@ -69,20 +69,9 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .display-position{position:absolute}
 .container,.panel{padding:0.01em 16px}.panel{margin-top:16px;margin-bottom:16px}
 
-.opacity,.hover-opacity:hover{opacity:0.60}.opacity-off,.hover-opacity-off:hover{opacity:1}
-.opacity-max{opacity:0.25}.opacity-min{opacity:0.75}
-.greyscale-max,.grayscale-max,.hover-greyscale:hover,.hover-grayscale:hover{filter:grayscale(100%)}
-.greyscale,.grayscale{filter:grayscale(75%)}.greyscale-min,.grayscale-min{filter:grayscale(50%)}
-.sepia{filter:sepia(75%)}.sepia-max,.hover-sepia:hover{filter:sepia(100%)}.sepia-min{filter:sepia(50%)}
-.tiny{font-size:10px!important}.small{font-size:12px!important}.medium{font-size:15px!important}.large{font-size:18px!important}
-.xlarge{font-size:24px!important}.xxlarge{font-size:36px!important}.xxxlarge{font-size:48px!important}.jumbo{font-size:64px!important}
-.left-align{text-align:left!important}.right-align{text-align:right!important}.justify{text-align:justify!important}.center{text-align:center!important}
-.border-0{border:0!important}.border{border:1px solid #ccc!important}
-.border-top{border-top:1px solid #ccc!important}.border-bottom{border-bottom:1px solid #ccc!important}
-.border-left{border-left:1px solid #ccc!important}.border-right{border-right:1px solid #ccc!important}
-.topbar{border-top:6px solid #ccc!important}.bottombar{border-bottom:6px solid #ccc!important}
-.leftbar{border-left:6px solid #ccc!important}.rightbar{border-right:6px solid #ccc!important}
-.section,.code{margin-top:16px!important;margin-bottom:16px!important}
+.large{font-size:18px!important}
+.jumbo{font-size:64px!important}
+
 .margin{margin:16px!important}.margin-top{margin-top:16px!important}.margin-bottom{margin-bottom:16px!important}
 .margin-left{margin-left:16px!important}.margin-right{margin-right:16px!important}
 .padding-small{padding:4px 8px!important}.padding{padding:8px 16px!important}.padding-large{padding:12px 24px!important}
@@ -90,6 +79,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .padding-32{padding-top:32px!important;padding-bottom:32px!important}.padding-48{padding-top:48px!important;padding-bottom:48px!important}
 .padding-64{padding-top:64px!important;padding-bottom:64px!important}
 .left{float:left!important}.right{float:right!important}
+.center{float:right!important}
 .button:hover{color:#000!important;background-color:#ccc!important}
 .transparent,.hover-none:hover{background-color:transparent!important}
 .hover-none:hover{box-shadow:none!important}
@@ -155,3 +145,46 @@ a:link,a:visited {
 a:hover,a:active {
     background-color: red;
 }
+.slidecontainer {
+    width: 100%; /* Width of the outside container */
+  }
+
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: white;
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: black; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  .slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: black; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+  }
+
+  #genre-form{
+      color: lightgrey;
+      opacity: 0.7;
+  }

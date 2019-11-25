@@ -1,15 +1,19 @@
-var nn = require('./neural_network/nn_main');
-var sp = require('./spotify_api/spotify_main.js');
-// var db = require('./database/connect');
-
-console.log('ATTN: spotify is currently not connecting');
+// var nn = require('./neural_network/nn_main');
+var sp = require('./spotify_api/spotify_main');
+var db = require('./database/queries');
 
 function round(n){
     //js doesnt like to round decimals...
     return Number(Math.round(n*10000)/10000);
 }
 
+// exports.main = function(){
 exports.main = function(user_input){
+    sp.main();
+
+    //test db stuff here...
+    // db.select('Post Malone', '*');
+
     var input = user_input['user_values'];
     var num_songs = user_input['num_songs'];
 
@@ -43,10 +47,9 @@ exports.main = function(user_input){
     //send weights and user values to nn
     // nn.nnMain(values, db_weights);
 
-    /*
-        user_values:
-            tempo, valence, danceability, loudness, energy
-    */
+
+        // user_values:
+            // tempo, valence, danceability, loudness, energy
     // user_input.
     returninfo = {};
     returninfo.values = values;
