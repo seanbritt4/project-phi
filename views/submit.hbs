@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="js/emojiSlider.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<h2 id='input-header' class="display-top black">Tell Us, How Are You Feeling?</h2>
+<div id="emoji-slider" style="position: absolute; top: 5vh"></div>
+<div id="input">
+  <div id='advanced-options'>
+    <div class='slidecontainer'></div>
+    {{!-- <br> --}}
+    <div id='genre-form'>
+      <input type='text' value='genre'>
+    </div>
+    <div id='advanced-input'><br>
+      Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo"><br>
+      Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence"><br>
+      Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity"><br>
+      Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness"><br>
+      Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness"><br>
+    </div>
+
+    <button type="button" class="button black large margin-top right" id="advanced-button">
+      Advanced Options
+    </button>
+    <button id='submit-button' type="submit" class="button left black large margin-top">
+      Submit
+    </button>
+  </div>
+</div>
+<div id="output">
+  <div id='playlist'></div>
+  <button type='submit' class="button black large margin-top right" id="export-button">
+    Export to Spotify
+  </button>
+  <button type='submit' class="button black large margin-top center" id="restart" method='post'>
+    Start Over
+  </button><br>
+</div>
