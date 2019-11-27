@@ -8,37 +8,39 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 
-<h2 id='input-header' class="display-top black">Tell Us, How Are You Feeling?</h2>
-<div id="emoji-slider" style="position: absolute; top: 5vh"></div>
-<div id="input">
-  <div id='advanced-options'>
-    <div class='slidecontainer'></div>
-    {{!-- <br> --}}
-    <div id='genre-form'>
-      <input type='text' value='genre'>
-    </div>
-    <div id='advanced-input'><br>
-      Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo"><br>
-      Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence"><br>
-      Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity"><br>
-      Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness"><br>
-      Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness"><br>
-    </div>
+<body class="bgcolor text-white" style="padding: 128px 16px">
+  <h2 id='input-header' class="display-top">Tell Us, How Are You Feeling?</h2>
+  <div id="emoji-slider" style="position: absolute; top: 5vh"></div>
+  <div id="input">
+    <div id='advanced-options'>
+      <div class='slidecontainer'></div>
+      {{!-- <br> --}}
+      <div id='genre-form'>
+        <input type='text' value='genre'>
+      </div>
+      <div id='advanced-input'><br>
+        Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo"><br>
+        Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence"><br>
+        Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity"><br>
+        Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness"><br>
+        Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness"><br>
+      </div>
 
-    <button type="button" class="button black large margin-top right" id="advanced-button">
-      Advanced Options
-    </button>
-    <button id='submit-button' type="submit" class="button left black large margin-top">
-      Submit
-    </button>
+      <button type="button" class="button black large margin-top right" id="advanced-button">
+        Advanced Options
+      </button>
+      <button id='submit-button' type="submit" class="button left black large margin-top">
+        Submit
+      </button>
+    </div>
   </div>
-</div>
-<div id="output">
-  <div id='playlist'></div>
-  <button type='submit' class="button black large margin-top right" id="export-button">
-    Export to Spotify
-  </button>
-  <button type='submit' class="button black large margin-top center" id="restart" method='post'>
-    Start Over
-  </button><br>
-</div>
+  <div id="output">
+    <div id='playlist'></div>
+    <button type='submit' class="button black large margin-top right" id="export-button">
+      Export to Spotify
+    </button>
+    <button type='submit' class="button black large margin-top center" id="restart" method='post'>
+      Start Over
+    </button><br>
+  </div>
+</body>
