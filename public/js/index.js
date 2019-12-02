@@ -105,6 +105,6 @@ $(document).ready(() => {
         $('#input').hide();
         $('#output').show();
         $('#emoji-slider').hide();
-      })
-
     })
+
+})
