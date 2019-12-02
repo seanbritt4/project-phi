@@ -14,27 +14,25 @@ var usersRouter = require('./routes/users');    //users.js
 var inputRouter = require('./routes/input');    //about.js
 var app = express();
 
-console.log('ATTN: nn is not connected');
+console.log('ATTN: nn connected but under revision');
 
-var be_manager = require('./phi_modules/module_manager.js');
+var be_manager = require('./phi_modules/main.js');
 app.use(bparser.json());
+var body;
 app.post('/', function(req, res){
-    var body;
-    body = req.body;
-    var obj = {};
-    obj.num_songs = 10;
-    //debugging, see data recv'd from front end
-    console.log('app, body:', body)
+  body = req.body;
+  // var obj? = {};
 
-    // send data to nn
-    be_manager.main(body);
+  //debugging, see data recv'd from front end
+  // console.log('app, body:', body)
 
-    // obj.returninfo = be_manager.main(body); //send data to phi_modules/module_manager.js
-    console.log('returninfo: ', obj.returninfo)
-    JSON.stringify(returninfo)
-    console.log('returninfo: ', obj)
-    res.send(obj);
-    next();
+  // send data to be used
+  console.log('sending...')
+  var obj = be_manager.main(body.user_values, body.num_songs);
+  console.log('out...')
+
+  // console.log('returninfo: ', obj)
+  res.send(obj);
 });
 
 app.get('input', function(req, res){
