@@ -176,9 +176,5 @@ function setMouseUp(){
 }
 
 function submit(){
-<<<<<<< HEAD
-	console.log('in submit:', valuePresets[selected])
-=======
->>>>>>> 8eb9133eec2d0dcf230cd04e57deec19bbd99771
 	return valuePresets[selected];
 }
