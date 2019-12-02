@@ -1,33 +1,17 @@
-body, h1, h5 {
-  font-family: "Raleway", sans-serif
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif
 }
 
-h1 {
-  font-size: 36px
-}
-
-h2 {
-  font-size: 30px;
-}
-
-p1 {
-  font-size: 30px;
-}
-
-p2 {
-  font-size: 28px;
-}
-
-p3 {
-  font-size: 24px;
-}
-
-.btn {
-  margin: auto;
+.bar, h1, button {
+  font-family: "Montserrat", sans-serif
 }
 
 body, html {
   height: 100%
+}
+
+.btn {
+  margin: auto;
 }
 
 .animate-zoom {
@@ -67,6 +51,15 @@ body, html {
   position: relative
 }
 
+.bar {
+  width: 100%;
+  overflow: hidden
+}
+
+.card, .card-2 {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+}
+
 .center .bar {
   display: inline-block;
   width: auto
@@ -92,6 +85,10 @@ body, html {
   right: 50%
 }
 
+.right {
+  float: right !important
+}
+
 .modal {
   z-index: 3;
   display: none;
@@ -115,9 +112,101 @@ body, html {
   width: 600px
 }
 
+.top, .bottom {
+  position: fixed;
+  width: 100%;
+  z-index: 1
+}
+
+.top {
+  top: 0
+}
+
+.bar .bar-item {
+  padding: 8px 16px;
+  float: left;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0
+}
+
+.bar-block .bar-item {
+  width: 100%;
+  display: block;
+  padding: 8px 16px;
+  text-align: left;
+  border: none;
+  white-space: normal;
+  float: none;
+  outline: 0
+}
+
+.bar-block.center .bar-item {
+  text-align: center
+}
+
+.bar-block .dropdown-hover, .bar-block .dropdown-click {
+  width: 100%
+}
+
+.bar-block .dropdown-hover .dropdown-content, .bar-block .dropdown-click .dropdown-content {
+  min-width: 100%
+}
+
+.bar-block .dropdown-hover .button, .bar-block .dropdown-click .button {
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px
+}
+
+.center .bar {
+  display: inline-block;
+  width: auto
+}
+
+.hide {
+  display: none !important
+}
+
+.container:after, .container:before, .panel:after, .panel:before, .row:after, .row:before, .row-padding:after, .row-padding:before,
+.cell-row:before, .cell-row:after, .clear:after, .clear:before, .bar:before, .bar:after {
+  content: "";
+  display: table;
+  clear: both
+}
+
+.padding-large {
+  padding: 12px 24px !important
+}
+
+.margin {
+  margin: 16px !important
+}
+
+.margin-top {
+  margin-top: 16px !important
+}
+
+.margin-bottom {
+  margin-bottom: 16px !important
+}
+
+.margin-left {
+  margin-left: 16px !important
+}
+
+.margin-right {
+  margin-right: 16px !important
+}
+
 /* text styles */
 .text-white {
   color: #fff !important
+}
+
+.large {
+  font-size: 18px !important
 }
 
 .jumbo {
@@ -128,14 +217,28 @@ body, html {
   font-size: 24px !important
 }
 
+.left-align {
+  text-align: left !important
+}
+
+.center {
+  text-align: center !important
+}
+
 /* colors */
 .black, .hover-black:hover {
   color: #fff !important;
   background-color: #000 !important
 }
 
-{
-    font-size: 200px
+.green, .hover-green:hover {
+  color: #fff !important;
+  background-color: #4CAF50 !important
+}
+
+.white, .hover-white:hover {
+  color: #000 !important;
+  background-color: #fff !important
 }
 
 a:link,a:visited {
