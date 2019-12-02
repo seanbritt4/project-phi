@@ -7,14 +7,9 @@ exports.select = function(str, table) {
     // db.query(query);
 }
 
-exports.insert = function(query){
-    console.log('EXAMPLE: in insert:', query);
+exports.main = (user_input) => {
+    console.log('in db main')
+    return user_input
+    // var songs_returned = {}
+    // return songs_returned
 }
-
-exports.test = function(msg){
-    console.log('queries:', msg);
-    return 'hello from database/queries.js'.concat(msg);
-}
-// exports.createQuery = function(query, content){
-// }
-
