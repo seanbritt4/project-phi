@@ -1,37 +1,24 @@
 $(document).ready(() => {
-  // $('#input').hide()
-  // $('#output').hide()
-  $('#about-info').hide()
-  // $('#emoji-slider').hide()
-  // $('#input-header').hide()
-
-  // $('.center').center()
+  $('#input').hide()
+  $('#output').hide()
+  $('#about-content').hide()
 
   $('#about-button').on('click', () => {
-    $('#title').hide()
-    $('#about-button').hide()
+    $('#title').fadeToggle()
+    $('#title2').fadeToggle()
     $('#about-info').fadeToggle()
     $('#start-button').fadeToggle()
-    document.getElementById('about-content').style.display = 'block'
   })
 
-  // $('#about-button').on('click', () => {
-  //   //console.log('clicked about')
-  //   $('#about-modal').show();
-  // }
   //
   // // When the user clicks on <span> (x), close the modal
   $('#close').on('click', () => {
-    $('#title').fadeToggle()
-    $('#about-button').fadeToggle()
-    $('#about-info').fadeToggle()
-    $('#start-button').fadeToggle()
-    $('#about-modal').hide();
+    $('#title').show()
+    $('#title2').show()
+    $('#start-button').show()
   })
-  //
-  // // //When the user clicks anywhere outside of the modal, close it
-  // $(window).on('click', () => function(event) {
-  //     if (event.target == modal) {
-  //       $('#about-modal').hide();
-  //     }
+})
+
+$('#start-button').on('click', () => {
+  window.open('views/submit.hbs', "_self")
 })

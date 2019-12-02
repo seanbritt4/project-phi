@@ -1,62 +1,85 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- scripts -->
-{{!-- jQuery --}}
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 <script src='js/index.js' type='text/javascript'></script>
 
-<!-- style & fonts -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lato", sans-serif
+  }
 
-<body class="bgcolor text-white" style="padding: 128px 16px">
-  <h1 id='title' align="center" class="display-middle jumbo">{{title}}</h1>
-  <a href="submit.hbs"><button id='start-button' class="button black btn display-middle">Get Started</button></a>
-  <div class="display-topright container xlarge">
-    <button id='about-button' class="button black">About Us</button>
-  </div>
+  .w3-bar h1,
+  button {
+    font-family: "Montserrat", sans-serif
+  }
+</style>
 
-  <!-- About Us Modal -->
-  <div class="center container xlarge">
-    <div id="about-content" class="modal">
-      <div class="modal-content animate-zoom">
-        <div class="container black">
-          <span id='close' onclick="document.getElementById('about-content').style.display='none'" class="button display-topright large">x</span>
-          <h1>About Us</h1>
-        </div>
-        <div class="container bgcolor">
-          <h1 align="center">About Project Phi</h1>
-          <p1 align="center" class="padding-32">Phi is a web application that allows you, the user, to generate a
-            playlist based on your mood. This is accomplished through the answering of several questions
-            asked through our interface.
-          </p1>
-          <p2 align="center" class="text-grey">These questions that are answered return to the AI a set of values that
-            are then compared to our database of songs, provided to us through Spotify. Any songs that meet
-            the criteria given are placed into a playlist. Simply log in with your Spotify account and get
-            started! *Disclosure: We do not save any account information, all login credentials are stored
-            through Spotify.*</p2>
-          <h2 align="center">About the Team</h2>
-          <p3 align="center" class='text-grey padding-32'>We are a team of Computer Science students at Salisbury University with
-            interests in Machine Learning, Web Development, and general Software engineering.
+<body bgcolor="#4CAF50">
+
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-black w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
+      <div id="about-content" class="w3-modal">
+        <div class="w3-modal-content w3-card-4">
+          <header class="w3-container w3-green">
+            <span id="close" onclick="document.getElementById('about-content').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <h2>About Project PHI</h2>
+          </header>
+          <div class="w3-container">
+            <p align="center" class="w3-text-black">Phi is a web application that allows you, the user, to generate a
+              playlist based on your mood. This is accomplished through the answering of several questions
+              asked through our interface.</p>
+            <p align="center" class="w3-text-black">These questions that are answered return to the AI a set of values that
+              are then compared to our database of songs, provided to us through Spotify. Any songs that meet
+              the criteria given are placed into a playlist. Simply log in with your Spotify account and get
+              started! *Disclosure: We do not save any account information, all login credentials are stored
+              through Spotify.*</p>
+            <h2 align="center" class="w3-text-black">About the Team</h2>
+            <p3 align="center" class="w3-text-black">We are a team of Computer Science students at Salisbury University with
+              interests in Machine Learning, Web Development, and general Software engineering.
+            </p3>
             <br><br>
-            Sean Brittingham
+            <p3 class="w3-text-black">Sean Brittingham</p3>
             <br>
-            Alex Titus
+            <p3 class="w3-text-black">Alex Titus</p3>
             <br>
-            Evan Tamosaitis
+            <p3 class="w3-text-black">Evan Tamosaitis</p3>
             <br>
-            Blade Forsythe
+            <p3 class="w3-text-black">Blade Forsythe</p3>
             <br>
-            Matt Adams
-          </p3>
+            <p3 class="w3-text-black">Matt Adams</p3>
+          </div>
+          <footer class="w3-container w3-green">
+          </footer>
         </div>
       </div>
     </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a id="about-button" class="w3-bar-item w3-button w3-padding-large">About Us</a>
+    </div>
+
+
+    <!-- Header -->
+    <header class="w3-container green w3-center" style="padding:128px 16px">
+      <h1 id="title" class="w3-margin w3-jumbo w3-text-white">Project PHI</h1>
+      <p id="title2" class="w3-xlarge w3-text-white">Created by Team BEAMS</p>
+      <button id="start-button" onclick="window.open('/views/submit.hbs', '_self')" class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
+    </header>
+
 </body>
-
-<script>
-
-</script>
