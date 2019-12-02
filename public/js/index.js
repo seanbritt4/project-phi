@@ -2,6 +2,9 @@ $(document).ready(() => {
   $('#input').hide()
   $('#output').hide()
   $('#about-content').hide()
+  $('#num-songs').hide()
+  $('#genre-form').hide()
+
 
   $('#about-button').on('click', () => {
     $('#title').fadeToggle()
