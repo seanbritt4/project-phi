@@ -14,7 +14,7 @@ var usersRouter = require('./routes/users');    //users.js
 var inputRouter = require('./routes/input');    //about.js
 var app = express();
 
-console.log('ATTN: nn is not connected');
+console.log('ATTN: nn connected but under revision');
 
 var be_manager = require('./phi_modules/main.js');
 app.use(bparser.json());
