@@ -21,18 +21,17 @@ app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
   body = req.body;
-  var obj = {};
-  obj.num_songs = 10;
-  //debugging, see data recv'd from front end
-  console.log('app, body:', body)
-  
-  // send data to nn
-  obj.returnInfo = be_manager.main(body);
-  console.log('here');
+  // var obj? = {};
 
-  // console.log('returninfo: ', obj.returninfo)
-  // JSON.stringify(returninfo)
-  console.log('returninfo: ', obj)
+  //debugging, see data recv'd from front end
+  // console.log('app, body:', body)
+
+  // send data to be used
+  console.log('sending...')
+  var obj = be_manager.main(body.user_values, body.num_songs);
+  console.log('out...')
+
+  // console.log('returninfo: ', obj)
   res.send(obj);
 });
 

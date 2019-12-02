@@ -176,5 +176,6 @@ function setMouseUp(){
 }
 
 function submit(){
+	console.log('in submit:', valuePresets[selected])
 	return valuePresets[selected];
 }
