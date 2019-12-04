@@ -1,19 +1,11 @@
 var connection = require('./connect.js')
 var qoutput = [];
 
-exports.select = function(query) {
-  connection.query(statement, function (err, result, fields) {
-    if (err) {
-    console.log(err);
-    throw err;
-    }
-    else {
-        console.log(result);
-        qoutput = result;
-      }
-    });}
-
-
+var min,    max,
+    minIns, maxIns,
+    minLd,  maxLd,
+    mintmp, maxtmp,
+    minval, maxval;
 
 let statement = `SELECT artist.artist_name, album.album_name, track.track_name, audio_features.*
 FROM artist
@@ -46,3 +38,16 @@ ON track.track_id=audio_features.track_id
 WHERE 1=1
 ORDER BY RAND()
 LIMIT 1000;`;*/
+
+exports.select = function(query) {
+  connection.query(statement, function (err, result, fields) {
+    if (err) {
+    console.log(err);
+    throw err;
+    }
+    else {
+        console.log(result);
+        qoutput = result;
+      }
+    });
+}
