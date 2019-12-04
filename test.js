@@ -1,5 +1,7 @@
-var modules = require('./phi_modules/module_manager.js')
+var modules = require('./phi_modules/database/queries.js')
 
+modules.select();
+/*
 var w = {};
 
 w.user_values = {
@@ -9,6 +11,7 @@ w.user_values = {
     "loudness":     Math.random(),
     "energy":       Math.random()
 }
+*/
 
 // [Math.random(),
 //                  Math.random(),
@@ -18,4 +21,4 @@ w.user_values = {
 
 // console.log(w);
 
-modules.main(w)
+//modules.main(w)

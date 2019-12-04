@@ -3,14 +3,18 @@ var qoutput = [];
 
 exports.select = function(query) {
   connection.query(statement, function (err, result, fields) {
-    if (err) throw err;
+    if (err) {
     console.log(err);
-    else{
-      console.log(result);
-      qoutput = result;
+    throw err;
     }
-  });
+    else {
+        console.log(result);
+        qoutput = result;
+      }
+    });}
 
+
+/*
 exports.insert = function(query){
     console.log('EXAMPLE: in insert:', query);
 }
@@ -19,8 +23,8 @@ exports.test = function(msg){
     console.log('queries:', msg);
     return 'hello from database/queries.js'.concat(msg);
 }
-
-butter
+*/
+//butter
 // exports.createQuery = function(query, content){
 // }
 let statement = `SELECT artist.artist_name, album.album_name, track.track_name, audio_features.*
