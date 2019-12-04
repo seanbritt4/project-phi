@@ -5,6 +5,7 @@ $(document).ready(() => {
       $('#input-header').hide()
       $('#emoji-slider').hide()
       $('#advanced-input').hide()
+      $('#num-songs').hide()
 
       console.log("Hello")
       $('#about-button').on('click', () => {
@@ -29,6 +30,8 @@ $(document).ready(() => {
         $('#input').fadeToggle()
         $('#input-header').fadeToggle()
         $('#emoji-slider').fadeToggle()
+        $('#num-songs').fadeToggle()
+
       })
 
       $('#advanced-button').on('click', () => {
