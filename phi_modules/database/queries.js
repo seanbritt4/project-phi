@@ -61,10 +61,6 @@ exports.setVals = function(){
   return qoutput;
 }
 
-/*
-exports.insert = function(query){
-    console.log('EXAMPLE: in insert:', query);
-}
 
 exports.test = function(msg){
     console.log('queries:', msg);
@@ -76,6 +72,7 @@ exports.test = function(msg){
 // }
 
 /*
+
 let statement = `SELECT artist.artist_name, album.album_name, track.track_name, audio_features.*
 FROM artist
 JOIN album
@@ -95,4 +92,3 @@ AND (tempo BETWEEN ${mintmp} AND ${maxtmp})
 AND (valence BETWEEN ${minval} AND ${maxval})
 ORDER BY RAND()
 LIMIT 1000;`;
-*/

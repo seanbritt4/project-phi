@@ -1,8 +1,0 @@
-todo:
-    -user login client side?
-        -looks like it has to be server side???
-
-    -connect DB?
-
-    -AJAX to communicate between client side and server!
-    
