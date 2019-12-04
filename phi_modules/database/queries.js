@@ -1,8 +1,14 @@
 var connection = require('./connect.js')
+var qoutput = [];
 
 exports.select = function(query) {
-    console.log('EXAMPLE: in select', query);
-}
+  connection.query(statement, function (err, result, fields) {
+    if (err) throw err;
+    console.log(result);
+    else{
+      qoutput = result;
+    }
+  });
 
 exports.insert = function(query){
     console.log('EXAMPLE: in insert:', query);
@@ -12,6 +18,8 @@ exports.test = function(msg){
     console.log('queries:', msg);
     return 'hello from database/queries.js'.concat(msg);
 }
+
+butter
 // exports.createQuery = function(query, content){
 // }
 let statement = `SELECT artist.artist_name, album.album_name, track.track_name, audio_features.*
