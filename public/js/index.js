@@ -1,6 +1,6 @@
 $(document).ready(() => {
       $('#input').hide()
-      // $('#output').hide()
+      $('#output').hide()
       $('#about-content').hide()
       $('#input-header').hide()
       $('#emoji-slider').hide()
@@ -47,7 +47,7 @@ $(document).ready(() => {
         type: 'POST', //type of ajax call
         data: JSON.stringify(data), //prepares for flight
         contentType: 'application/json', //unsure...
-        url: '/', //
+        url: '/', //url used to send/recv data
 
         success: function(data) { //on success, recv's data from server
         // now we can do stuff with the data from the server
@@ -66,7 +66,7 @@ $(document).ready(() => {
       $('#emoji-slider').hide();
       $('#num-songs').hide();
       $('#input-header').hide();
-      // $('#output').show();
+      $('#output').show();
     })
 
     $('#restart').on('click', () => {
