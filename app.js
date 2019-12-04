@@ -8,40 +8,31 @@ var logger = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var bparser = require('body-parser');   //use to convert json body to strings when needed
+var bparser     = require('body-parser');   //use to convert json body to strings when needed
 var indexRouter = require('./routes/index');    //index.js
-var usersRouter = require('./routes/users');    //users.js
 var inputRouter = require('./routes/input');    //about.js
+// var usersRouter = require('./routes/users');    //users.js
 var app = express();
 
-console.log('ATTN: nn is not connected');
+console.log('ATTN: nn connected but under revision');
 
 var be_manager = require('./phi_modules/main.js');
 app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
   body = req.body;
-  var obj = {};
-  obj.num_songs = 10;
-  //debugging, see data recv'd from front end
-  console.log('app, body:', body)
-  
-  // send data to nn
-  obj.returnInfo = be_manager.main(body);
-  console.log('here');
 
-  // console.log('returninfo: ', obj.returninfo)
-  // JSON.stringify(returninfo)
-  console.log('returninfo: ', obj)
+  //debugging, see data recv'd from front end
+  console.log('recvd:', body)
+
+  // send data to be used
+  console.log('sending...')
+  var obj = be_manager.main(body.user_values, body.num_songs);
+  console.log('out...')
+
+  // console.log('returninfo: ', obj)
   res.send(obj);
 });
-
-app.get('input', function(req, res){
-//     inputRouter();
-
-    console.log('here, get BEasdl');
-    res.send('input');
-})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
