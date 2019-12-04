@@ -4,8 +4,9 @@ var qoutput = [];
 exports.select = function(query) {
   connection.query(statement, function (err, result, fields) {
     if (err) throw err;
-    console.log(result);
+    console.log(err);
     else{
+      console.log(result);
       qoutput = result;
     }
   });
