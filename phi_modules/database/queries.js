@@ -1,12 +1,12 @@
 var connection = require('./connect.js')
 var statement;
-var qoutput = [];
+var qoutput = Object();
 
 var variation = [.05,.1,.1,1,.1,3,.1,30,.1];
 var minmax = [];
 var vals = [.1,.5,.5,.5,.3,-5,.3,100,.4];
 
-exports.select = function() {
+select = function() {
   console.log(minmax);
   addVariation();
   console.log(minmax);
@@ -16,8 +16,9 @@ exports.select = function() {
     throw err;
     }
     else {
-        console.log(result);
+        //console.log(result);
         qoutput = result;
+        //console.log(qoutput);
       }
     });}
 
@@ -50,8 +51,14 @@ addVariation = function(){
 }
 
 
-exports.setVals = function(values){
+exports.setVals = function(){
+  /*if(values){
   vals = values;
+}*/
+  select();
+  connection.end();
+  console.log("pie" + qoutput);
+  return qoutput;
 }
 
 /*

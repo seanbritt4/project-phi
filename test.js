@@ -1,6 +1,9 @@
 var modules = require('./phi_modules/database/queries.js')
 
-modules.select();
+
+let stuff = modules.setVals();
+console.log("printing");
+console.log(stuff);
 /*
 var w = {};
 
