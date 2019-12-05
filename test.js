@@ -1,27 +1,12 @@
-var modules = require('./phi_modules/database/queries.js')
+//var modules = require('./phi_modules/database/queries.js')
+var modules = require('./phi_modules/database/testQ.js')
 
+var stuff;
 
-let stuff = modules.setVals();
-console.log("printing");
+var vals = [.1,.5,.5,.5,.3,-5,.3,100,.4];
+stuff = modules.sendQuery(vals);
+
+setTimeout(function(){
+console.log("printing rows");
 console.log(stuff);
-/*
-var w = {};
-
-w.user_values = {
-    "tempo":        Math.random(),
-    'valence':      Math.random(),
-    "danceability": Math.random(),
-    "loudness":     Math.random(),
-    "energy":       Math.random()
-}
-*/
-
-// [Math.random(),
-//                  Math.random(),
-//                  Math.random(),
-//                  Math.random(),
-//                  Math.random()];
-
-// console.log(w);
-
-//modules.main(w)
+}, 3000);
