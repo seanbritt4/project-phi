@@ -13,14 +13,14 @@ $(document).ready(() => {
         $('#about-info').fadeToggle()
         $('#start-button').fadeToggle()
       })
-      
+
       // // When the user clicks on <span> (x), close the modal
       $('#close').on('click', () => {
         $('#title').fadeToggle()
         $('#title2').fadeToggle()
         $('#start-button').fadeToggle()
       })
-      
+
     $('#start-button').on('click', () => {
       console.log("Hello")
       $('#title').hide()
@@ -32,8 +32,9 @@ $(document).ready(() => {
       $('#emoji-slider').fadeToggle()
       $('#num-songs').fadeToggle()
     })
-      
+
     $('#submit-button').on('click', () => {
+
       var data = {};  //data to be sent to back end
       var e = document.getElementById("num-songs");
       data.num_songs = $("#num-songs :selected").val(); //get user selected numner of songs
@@ -42,7 +43,7 @@ $(document).ready(() => {
       data.user_values = emojiSubmit() //stores vals in data
       //  console.log("Test: ", data.num_songs, " ", data.genre);
       console.log(data)
-      
+
       $.ajax({
         type: 'POST', //type of ajax call
         data: JSON.stringify(data), //prepares for flight
@@ -61,12 +62,13 @@ $(document).ready(() => {
           $("#playlist").append('</ul>');
         }
       });
-      
       $('#input').hide();
       $('#emoji-slider').hide();
       $('#num-songs').hide();
       $('#input-header').hide();
       $('#output').show();
+      $('#playlist').show();
+
     })
 
     $('#restart').on('click', () => {
