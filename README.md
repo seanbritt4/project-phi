@@ -1,19 +1,11 @@
-﻿# project-phi
-
-Version 0.8
+Version 0.9
 Incomplete;
  TODO: 
   NN:
    rework nn
-   add functionality to save the nn
+   add functionality to save the nn??
   DB:
-   build query strings to query the DB
-   convert DB return data into JS objects for NN to use
+   convert DB return data into JS objects for NN to use?
   Data Flow:
-   rework FE->BE data flow
-   rework genre input
-   fix (broken) advanced input, get input from sliders
-   format output on website (lavalamp?!?!)
+   rework FE->BE data flow (1/2 done)
    add user login
-  Web Design:
-   add page redirects

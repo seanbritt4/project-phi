@@ -1,4 +1,5 @@
 .env
+npm-debug.log
 test.js
 node_modules
 alex-todo

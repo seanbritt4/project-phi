@@ -1,4 +1,5 @@
 $(document).ready(() => {
+<<<<<<< HEAD
   $('#input').hide()
   $('#output').hide()
   $('#about-content').hide()
@@ -64,73 +65,79 @@ $(document).ready(() => {
     $('#start-button').on('click', () => {
       $('#start-button').hide()
       $('#about-button').hide()
+=======
+      $('#input').hide()
+      // $('#output').hide()
+>>>>>>> bb0996c2aa85fb245c8c2d1a655401ca2cc2f6ad
       $('#about-content').hide()
+      $('#input-header').hide()
+      $('#emoji-slider').hide()
       $('#advanced-input').hide()
-      $('#title').fadeOut()
+      $('#num-songs').hide()
+
+      $('#about-button').on('click', () => {
+        $('#title').fadeToggle()
+        $('#title2').fadeToggle()
+        $('#about-info').fadeToggle()
+        $('#start-button').fadeToggle()
+      })
+      
+      // // When the user clicks on <span> (x), close the modal
+      $('#close').on('click', () => {
+        $('#title').fadeToggle()
+        $('#title2').fadeToggle()
+        $('#start-button').fadeToggle()
+      })
+      
+    $('#start-button').on('click', () => {
+      console.log("Hello")
+      $('#title').hide()
+      $('#title2').hide()
+      $('#start-button').hide()
+      $('#navbar').hide()
+      $('#input').fadeToggle()
       $('#input-header').fadeToggle()
-      $('#input').show()
-      $('#submit-button').show()
-      $('#advanced').show()
-      $('#emoji-slider').show()
-      $('#genre-form').show()
-      $('#num-songs').show()
+      $('#emoji-slider').fadeToggle()
+      $('#num-songs').fadeToggle()
     })
+      
+    $('#submit-button').on('click', () => {
+      var data = {};  //data to be sent to back end
+      var e = document.getElementById("num-songs");
+      data.num_songs = $("#num-songs :selected").val(); //get user selected numner of songs
+      e = document.getElementById("genre-form");
+      data.genre = $("#genre-form :selected").val();  //get user selected genre
+      data.user_values = emojiSubmit() //stores vals in data
+      //  console.log("Test: ", data.num_songs, " ", data.genre);
+      console.log(data)
+      
+      $.ajax({
+        type: 'POST', //type of ajax call
+        data: JSON.stringify(data), //prepares for flight
+        contentType: 'application/json', //unsure...
+        url: '/', //
 
-    $('tempo[type=range').on('input', () => {
-      console.log('slider moved', this.value);
-      $(this).trigger('change');
-    })
-
-      $('#advanced-button').on('click', () => {
-        $('#advanced-input').toggle()
-
-        console.log('advanced')
-      }); $('#export-button').on('click', () => {
-        console.log('export')
-      }); $('#restart').on('click', () => {
-        location.reload();
-      });
-
-      $('#submit-button').on('click', () => {
-        // console.log('in submit');
-        //declares data variable, will be used to store data and pass it
-        //along to the server
-
-        $('#genre-form').hide()
-        $('#num-songs').hide()
-        var user_input = submit()
-        console.log('index.js:', user_input)
-        var data = {};
-        data.user_values = user_input; //stores vals in data
-        // data.user_values = submit(); //stores vals in data
-        data.num_songs = 10;
-        console.log('index.js:', data)
-
-        $.ajax({
-          type: 'POST', //type of ajax call
-          data: JSON.stringify(data), //prepares for flight
-          contentType: 'application/json', //unsure...
-          url: '/', //
-          // url: JSON.stringify(process.env.PORT),     //destination, can use this more effectively
-          // url: 'http://localhost:3000',     //destination, can use this more effectively
-          success: function(data) { //on success, recv's data from server
-            console.log('success, send', JSON.stringify(data));
-            console.log(data);
-            // now we can do stuff with the data from the server
-            $("#playlist").append('<b>Your playlist:</b><br><ul>');
-            // for(var i in data.num_songs){
-            for (var i = 0; i < data.num_songs; i++) {
-              // $('#output').append('<br>', data.values[i]);
-              // $('#output').append(i, '<br>');
-              $('#playlist').append('<li>', i, '</li>');
-            }
-            $("#playlist").append('</ul>');
+        success: function(data) { //on success, recv's data from server
+        // now we can do stuff with the data from the server
+        $("#playlist").append('<b>Your playlist:</b><br><ul>');
+        // for(var i in data.num_songs){
+          for (var i = 0; i < data.num_songs; i++) {
+            // $('#output').append('<br>', data.values[i]);
+            // $('#output').append(i, '<br>');
+            $('#playlist').append('<li>', /* i,*/'</li>');
           }
-        });
-
-        $('#input').hide();
-        $('#output').show();
-        $('#emoji-slider').hide();
+          $("#playlist").append('</ul>');
+        }
+      });
+      
+      $('#input').hide();
+      $('#emoji-slider').hide();
+      $('#num-songs').hide();
+      $('#input-header').hide();
+      // $('#output').show();
     })
 
-})
+    $('#restart').on('click', () => {
+        window.location.reload()
+    })
+  })
