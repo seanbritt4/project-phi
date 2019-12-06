@@ -30,16 +30,13 @@
   <!-- Navbar -->
   <div id="navbar" class="w3-top">
     <div class="w3-bar w3-black w3-card w3-left-align w3-large">
-      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green"
-        href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
       <button onclick="window.location.reload();" class="w3-bar-item w3-button w3-padding-large w3-black">Home</button>
-      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'"
-        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
+      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
       <div id="about-content" class="w3-modal">
         <div class="w3-modal-content w3-card-4">
           <header class="w3-container w3-green">
-            <span id="close" onclick="document.getElementById('about-content').style.display='none'"
-              class="w3-button w3-display-topright">&times;</span>
+            <span id="close" onclick="document.getElementById('about-content').style.display='none'" class="w3-button w3-display-topright">&times;</span>
             <h2>About Project PHI</h2>
           </header>
           <div class="w3-container">
@@ -91,7 +88,8 @@
   <h1 id='input-header' align="center" class="top">Tell Us, How Are You Feeling?</h1>
   <div id="emoji-slider" align="center" style="position: absolute"></div>
   <div id="input">
-    <div id="num-songs">
+    <br><br><br><br><br>
+    <div id="num-songs" align="center">
       How many songs would you like to generate?<br>
       <select>
         <option value='20'>20</option>
@@ -103,7 +101,7 @@
         <option value='50'>50</option>
       </select>
     </div>
-    <div id='genre-form'>
+    <div id='genre-form' align="center">
       Select a genre<br>
       <select>
         <option value='americana'>Americana</option>
@@ -132,21 +130,20 @@
         <option value='yodeling'>Yodeling</option>
       </select>
     </div>
-    <button id='submit-button' type="submit" class="button left black large margin-top">
+    <button id='submit-button' align="center" type="submit" class="button left black large margin-top">
       Submit
     </button>
+  </div>
 
-    {{!-- here --}}
-    <div id="output">
-      output
-      <div align="center" id='playlist'></div>
-      {{!-- playlist --}}
-      <button id="export-button" type='submit' class="button black large margin-top right">
-        Export to Spotify
-      </button>
-      <button id="restart" type='submit' class="button black large margin-top center" method='post'>
-        Start Over
-      </button><br>
-    </div>
-
+  {{!-- here --}}
+  <div id="output">
+    <div id='playlist' align="center"></div>
+    {{!-- playlist --}}
+    <button id="export-button" align"center" type='submit' class="button black large margin-top">
+      Export to Spotify
+    </button>
+    <button id="restart" align"center" type='submit' class="button black large margin-top" method='post'>
+      Start Over
+    </button><br>
+  </div>
 </body>
