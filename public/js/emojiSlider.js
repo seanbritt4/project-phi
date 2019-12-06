@@ -175,6 +175,6 @@ function setMouseUp(){
 	mouseDown = false;
 }
 
-function submit(){
+function emojiSubmit(){
 	return valuePresets[selected];
 }

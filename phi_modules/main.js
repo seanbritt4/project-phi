@@ -2,7 +2,8 @@ var nn = require('./nn/nn_main');
 var db = require('./database/queries');
 
 exports.main = function(user_values){
-    var songs = db.main(user_values)
+    // var songs = db.select(user_values)
+    console.log('1')
     
     songs = [[0.0139, 0.74, 0.835, 0, 10, 0.857, -3.425, 0, 0.0839, 123.024, 4, 0.535],
     [0.227, 0.468, 0.737, 0, 5, 0.104, -4.808, 0, 0.0964, 130.04, 4, 0.496],
