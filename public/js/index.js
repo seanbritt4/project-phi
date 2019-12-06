@@ -1,6 +1,4 @@
 $(document).ready(() => {
-      $('#input').hide()
-      $('#output').hide()
       $('#about-content').hide()
       $('#input-header').hide()
       $('#emoji-slider').hide()
