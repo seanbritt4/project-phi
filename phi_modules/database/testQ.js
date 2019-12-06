@@ -5,14 +5,14 @@ var statement;
 //Holds min and max of vals
 var minmax = [];
 //default test vals
-var vals = [.1,.5,.5,.5,.3,-5,.3,100,.4];
+var vals = [.1,.5,.5,.3,-5,.3,100,.4];
 //Variation applied to vals, needs refining
-var variation = [.05,.1,.1,1,.1,3,.1,30,.1];
+var variation = [.05,.1,.1,.1,3,.1,30,.1];
 //Holds min and max of vals
 var minmax = [];
-
 var qoutput;
 
+//Gets values and send to select
 exports.sendQuery = function(values){
   setTimeout(function(){
   if(values){
@@ -28,11 +28,14 @@ exports.sendQuery = function(values){
       connection.end();
       console.log("returning output ");
       console.log(qoutput);
-      return qoutput;
-    }, 1000);
+      global.query=qoutput;
+      //export.qoutput = qoutput;
+      //return qoutput;
+    }, 1500);
   }, 1000);
 }
 
+// Sets min and maxs and sends the query and returns
 select = function() {
   console.log("printing variation " + variation);
   addVariation();
@@ -51,8 +54,9 @@ select = function() {
       });
 }
 
+//Adds variation to the values given
 addVariation = function(){
-  for(i=0;i<9;i++){
+  for(i=0;i<8;i++){
     minmax[i+i] = vals[i] - variation[i];
     minmax[i+i+1] = vals[i] + variation[i];
   }
@@ -67,12 +71,11 @@ addVariation = function(){
   WHERE (acousticness BETWEEN ${minmax[0]} AND ${minmax[1]})
   AND (danceability BETWEEN ${minmax[2]} AND ${minmax[3]})
   AND (energy BETWEEN ${minmax[4]} AND ${minmax[5]})
-  AND (instrumentalness BETWEEN ${minmax[6]} AND ${minmax[7]})
-  AND (liveness BETWEEN ${minmax[8]} AND ${minmax[9]})
-  AND (loudness BETWEEN ${minmax[10]} AND ${minmax[11]})
-  AND (speechiness BETWEEN ${minmax[12]} AND ${minmax[13]})
-  AND (tempo BETWEEN ${minmax[14]} AND ${minmax[15]})
-  AND (valence BETWEEN ${minmax[16]} AND ${minmax[17]})
+  AND (liveness BETWEEN ${minmax[6]} AND ${minmax[7]})
+  AND (loudness BETWEEN ${minmax[8]} AND ${minmax[9]})
+  AND (speechiness BETWEEN ${minmax[10]} AND ${minmax[11]})
+  AND (tempo BETWEEN ${minmax[12]} AND ${minmax[13]})
+  AND (valence BETWEEN ${minmax[14]} AND ${minmax[15]})
   ORDER BY RAND()
   LIMIT 1000;`;
   console.log("printing statement " + statement);
