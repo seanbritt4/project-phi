@@ -5,3 +5,4 @@ node_modules
 alex-todo
 test-nn
 test-scrapper
+.weights.dat

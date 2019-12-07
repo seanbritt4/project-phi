@@ -10,8 +10,7 @@ dotenv.config();
 
 var bparser     = require('body-parser');   //use to convert json body to strings when needed
 var indexRouter = require('./routes/index');    //index.js
-var inputRouter = require('./routes/input');    //about.js
-// var usersRouter = require('./routes/users');    //users.js
+// var inputRouter = require('./routes/input');    //about.js
 var app = express();
 
 console.log('ATTN: nn connected but under revision');
@@ -27,11 +26,14 @@ app.post('/', function(req, res){
 
   // send data to be used
   console.log('sending...')
-  var obj = be_manager.main(body.user_values, body.num_songs);
-  console.log('out...')
-
-  // console.log('returninfo: ', obj)
-  res.send(obj);
+  var obj;
+  be_manager.main(body)
+  .then((a) => Promise.resolve(a))
+  .then((a) => {
+    // var return_info = a()
+    // res.send(return_info)
+    res.send(a())
+  })
 });
 
 // view engine setup
@@ -45,9 +47,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/input', inputRouter);
-// app.use('/users', usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

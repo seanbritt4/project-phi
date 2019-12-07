@@ -30,13 +30,16 @@
   <!-- Navbar -->
   <div id="navbar" class="w3-top">
     <div class="w3-bar w3-black w3-card w3-left-align w3-large">
-      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green"
+        href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
       <button onclick="window.location.reload();" class="w3-bar-item w3-button w3-padding-large w3-black">Home</button>
-      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
+      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'"
+        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
       <div id="about-content" class="w3-modal">
         <div class="w3-modal-content w3-card-4">
           <header class="w3-container w3-green">
-            <span id="close" onclick="document.getElementById('about-content').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+            <span id="close" onclick="document.getElementById('about-content').style.display='none'"
+              class="w3-button w3-display-topright">&times;</span>
             <h2>About Project PHI</h2>
           </header>
           <div class="w3-container">
@@ -104,6 +107,7 @@
     <div id='genre-form' align="center">
       Select a genre<br>
       <select>
+        <option value='*'>All</option>
         <option value='americana'>Americana</option>
         <option value='bluegrass'>Bluegrass</option>
         <option value='blues'>Blues</option>
