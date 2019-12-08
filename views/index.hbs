@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
   body,
   h1,
@@ -33,9 +34,8 @@
       <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large green"
         href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
       <button onclick="window.location.reload();" class="w3-bar-item w3-button w3-padding-large w3-black">Home</button>
-      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'"
-        class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
-      <div id="about-content" class="w3-modal">
+      <button id="about-button" onclick="document.getElementById('about-content').style.display='block'" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">About Us</button>
+      <div id="about-content" align="center" class="w3-modal">
         <div class="w3-modal-content w3-card-4">
           <header class="w3-container w3-green">
             <span id="close" onclick="document.getElementById('about-content').style.display='none'"
@@ -43,18 +43,18 @@
             <h2>About Project PHI</h2>
           </header>
           <div class="w3-container">
-            <p align="center" class="w3-text-black">Phi is a web application that allows you, the user, to
+            <p class="w3-text-black">Phi is a web application that allows you, the user, to
               generate a
               playlist based on your mood. This is accomplished through the answering of several questions
               asked through our interface.</p>
-            <p align="center" class="w3-text-black">These questions that are answered return to the AI a set of
+            <p class="w3-text-black">These questions that are answered return to the AI a set of
               values that
               are then compared to our database of songs, provided to us through Spotify. Any songs that meet
               the criteria given are placed into a playlist. Simply log in with your Spotify account and get
               started! *Disclosure: We do not save any account information, all login credentials are stored
               through Spotify.*</p>
-            <h2 align="center" class="w3-text-black">About the Team</h2>
-            <p3 align="center" class="w3-text-black">We are a team of Computer Science students at Salisbury
+            <h2 class="w3-text-black">About the Team</h2>
+            <p3 class="w3-text-black">We are a team of Computer Science students at Salisbury
               University with
               interests in Machine Learning, Web Development, and general Software engineering.
             </p3>
@@ -88,11 +88,11 @@
       Started</button>
   </header>
 
-  <h1 id='input-header' align="center" class="top">Tell Us, How Are You Feeling?</h1>
-  <div id="emoji-slider" align="center" style="position: absolute"></div>
-  <div id="input">
+  <div id="input" align="center">
+    <h1 id="input-header" class="top">Tell Us, How Are You Feeling?</h1>
+    <div id="emoji-slider" style="position: absolute"></div>
     <br><br><br><br><br>
-    <div id="num-songs" align="center">
+    <div id="num-songs">
       How many songs would you like to generate?<br>
       <select>
         <option value='20'>20</option>
@@ -104,10 +104,9 @@
         <option value='50'>50</option>
       </select>
     </div>
-    <div id='genre-form' align="center">
+    <div id="genre-form">
       Select a genre<br>
       <select>
-        <option value=''>All</option>
         <option value='americana'>Americana</option>
         <option value='bluegrass'>Bluegrass</option>
         <option value='blues'>Blues</option>
@@ -134,19 +133,27 @@
         <option value='yodeling'>Yodeling</option>
       </select>
     </div>
-    <button id='submit-button' align="center" type="submit" class="button left black large margin-top">
+    <br>
+    <button id='submit-button' type="submit" class="button left black large margin-top">
       Submit
     </button>
   </div>
 
   {{!-- here --}}
-  <div id="output">
-    <div id='playlist' align="center"></div>
+  <div id="output" align="center">
+    <div id="playlist"></div>
     {{!-- playlist --}}
-    <button id="export-button" align"center" type='submit' class="button black large margin-top">
+    <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("fa-thumbs-down");
+      }
+    </script>
+    <br><br>
+    <button id="export-button" type='submit' class="button black large margin-top">
       Export to Spotify
     </button>
-    <button id="restart" align"center" type='submit' class="button black large margin-top" method='post'>
+    <button id="restart" type='submit' class="button black large margin-top" method='post'>
       Start Over
     </button><br>
   </div>
