@@ -6,7 +6,6 @@ $(document).ready(() => {
       $('#emoji-slider').hide()
       $('#advanced-input').hide()
 
-
       console.log("Hello")
       $('#about-button').on('click', () => {
         $('#title').fadeToggle()

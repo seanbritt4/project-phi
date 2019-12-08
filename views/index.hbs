@@ -11,21 +11,72 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-  body,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  body, h1, h2, h3, h4, h5, h6 {
     font-family: "Lato", sans-serif
   }
 
-  .w3-bar h1,
-  button {
+  .w3-bar h1, button {
     font-family: "Montserrat", sans-serif
   }
 </style>
+<body class="bgcolor text-white" style="padding: 128px 16px">
+  <h1 id='title' align="center" class="display-middle jumbo">{{title}}</h1>
+  </div>
+  <button id='start-button' class="button black btn display-middle">Get Started</button>
+  <h2 id='input-header' class="display-top black">Tell Us, How Are You Feeling?</h2>
+  <div id="emoji-slider" style="position: absolute; top: 5vh"></div>
+  <div id="num-songs">
+    How many songs would you like to generate?<br>
+    <select>
+      <option value='20'>20</option>
+      <option value='25'>25</option>
+      <option value='30'>30</option>
+      <option value='35'>35</option>
+      <option value='40'>40</option>
+      <option value='45'>45</option>
+      <option value='50'>50</option>
+    </select>
+  </div>
+  <div id="input">
+    <div id='advanced-options'>
+      <div class='slidecontainer'></div>
+      {{!-- <br> --}}
+      <div id='genre-form'>
+        Select a genre<br>
+        <select>
+          <option value='ameriana'>Americana</option>
+          <option value='bluegrass'>Bluegrass</option>
+          <option value='blues'>Blues</option>
+          <option value='classical'>Classical</option>
+          <option value='country'>Country</option>
+          <option value='edm'>EDM</option>
+          <option value='emo'>Emo</option>
+          <option value='folk'>Folk</option>
+          <option value='funk'>Funk</option>
+          <option value='grunge'>Grunge</option>
+          <option value='hardcore'>Hardcore</option>
+          <option value='hip hop'>Hip Hop</option>
+          <option value='house'>House</option>
+          <option value='indie'>Indie</option>
+          <option value='jazz'>Jazz</option>
+          <option value='metal'>Metal</option>
+          <option value='pop'>Pop</option>
+          <option value='rap'>Rap</option>
+          <option value='rock'>Rock</option>
+          <option value='r&b'>R&B</option>
+          <option value='screamo'>Screamo</option>
+          <option value='ska'>Ska</option>
+          <option value='trap'>Trap</option>
+          <option value='yodeling'>Yodeling</option>
+        </select>
+      </div>
+      <div id='advanced-input'><br>
+        Tempo<input type="range" min="1" max="100" value="50" class="slider center" id="tempo"><br>
+        Valence<input type="range" min="1" max="100" value="50" class="slider center" id="valence"><br>
+        Danceability<input type="range" min="1" max="100" value="50" class="slider center" id="danceablity"><br>
+        Happiness<input type="range" min="1" max="100" value="50" class="slider center" id="happiness"><br>
+        Loudness<input type="range" min="1" max="100" value="50" class="slider center" id="loudness"><br>
+      </div>
 
 <body bgcolor="#4CAF50">
   <!-- Navbar -->
