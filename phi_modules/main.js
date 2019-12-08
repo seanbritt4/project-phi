@@ -39,22 +39,38 @@ function asyncMain(data){
                 num_songs,
                 artists_names: [],
                 album_names: [],
-                track_names: []
+                track_names: [],
+                message_status: false,
+                message: ''
             }
             
-            while(count < num_songs && i < 1000){
-                if(playlist == undefined) {
-                    console.log('no songs returned')
-                    return
-                }else{
-                    if(playlist[i] >= 0.75){
-                        return_info.artists_names.push(query[i].artist_name)
-                        return_info.album_names.push(query[i].album_name)
-                        return_info.track_names.push(query[i].track_name)
-                        count++;
-                    }
+            console.log('query length', query.length)
+            if(query.length < 20){
+                for(var i in return_info){
+                    return_info.artists_names.push(query[i].artist_name)
+                    return_info.album_names.push(query[i].album_name)
+                    return_info.track_names.push(query[i].track_name)
+                    return_info.message_status = true
+                    return_info.message = 'Too few tracks...'
                 }
-                i++;
+            }else{
+                playlist.sort().reverse()
+
+                while(count < num_songs && i < 5000){
+                    if(playlist == undefined) {
+                        console.log('no songs returned')
+                        return
+                    }else{
+                        if(playlist[i] >= 0.75){
+                            console.log(playlist[i])
+                            return_info.artists_names.push(query[i].artist_name)
+                            return_info.album_names.push(query[i].album_name)
+                            return_info.track_names.push(query[i].track_name)
+                            count++;
+                        }
+                    }
+                    i++;
+                }
             }
 
             return_info.num_songs = count;

@@ -52,8 +52,8 @@ var mouseDown = false;
 ];*/
 
 var valuePresets = [
-	//acousticness, danceability, energy, LIVENESS, LOUDNESS, SPEECHINESS, tempo, valence
-	//.1, 			.5, 		  .5, 	 .4,   		-6, 		.5, 		120, 	.5  
+	//acousticness, danceability, energy, LOUDNESS, tempo, valence
+	//.1, 			.5, 		  .5, 	 	-6, 	120, 	.5  
 
 	[0.03, 0.8, 0.9, -3, 170, 0.8], //big smile
 	[0.03, 0.6, 0.6, -5, 130, 0.6], //forced smile

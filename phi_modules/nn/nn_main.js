@@ -143,6 +143,6 @@ exports.main = (data) => {
     
     var output = nn.forward_prop(data)
     console.log('leaving nn main')
-    console.log('o', output)
+    // console.log('o', output)
     return output[0] //output is a 2d array for some reason... 
 }

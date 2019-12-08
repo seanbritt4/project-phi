@@ -33,6 +33,7 @@ $(document).ready(() => {
   })
 
   $('#submit-button').on('click', () => {
+
     $('#input').hide();
     $('#emoji-slider').hide();
     $('#num-songs').hide();
@@ -55,13 +56,15 @@ $(document).ready(() => {
         // now we can do stuff with the data from the server
         var genre = data.genre;
         if(genre === ''){genre = "All"}
-        $("#playlist").append('<b>Your playlist(', genre, ')</b><br><ul>');
+        $("#playlist").append('<h3><b>Your playlist', genre, '</b></h3><br>');
+        $("#playlist").append('<h5>Number of songs:', data.num_songs, '</h5><br><ul>');
+        
         // for(var i in data.num_songs){
           console.log('data:', data)
           for (var i = 0; i < data.num_songs; i++) {
             $('#playlist').append(i+1, ': ', data.track_names[i], ', by: ', data.artists_names[i], ' (', data.album_names[i], ')', '<br>');
           }
-          $("#playlist").append('</ul>');
+          $("#playlist").append('</ul><br>');
         }
       });
 

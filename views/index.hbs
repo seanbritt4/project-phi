@@ -107,6 +107,7 @@
     <div id="genre-form">
       Select a genre<br>
       <select>
+        <option value=''>All</option>
         <option value='americana'>Americana</option>
         <option value='bluegrass'>Bluegrass</option>
         <option value='blues'>Blues</option>
@@ -146,6 +147,7 @@
     <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
     <script>
       function myFunction(x) {
+        alert("Thank you for your feedback!")
         x.classList.toggle("fa-thumbs-down");
       }
     </script>
