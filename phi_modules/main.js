@@ -7,7 +7,7 @@ function asyncMain(data){
             var user_values = data.user_values;
             var num_songs = data.num_songs;
             var genre = data.genre;
-            
+
             // console.log(user_values, num_songs)
             db.sendQuery(user_values, genre)
 
@@ -19,19 +19,19 @@ function asyncMain(data){
                 num_songs: num_songs,
                 output: []
             }
-        
+
             for (var i in query){
                     num_tracks++;
                     nn_data.song_ids.push(query[i].track_id)
                     var audio_features = [query[i].acousticness, query[i].danceability, query[i].energy,
-                    query[i].loudness, query[i].tempo, query[i].valence]   
+                    query[i].loudness, query[i].tempo, query[i].valence]
                     nn_data.audio_features.push(audio_features)
             }
-                
-            console.log('sending to nn')
+
+            // console.log('sending to nn')
             var playlist = nn.main(nn_data)
-            console.log('back from nn')
-            
+            // console.log('back from nn')
+
             var count = 0;
             var i = 0;
             var return_info = {
@@ -44,8 +44,8 @@ function asyncMain(data){
                 message_status: false,
                 message: ''
             }
-            
-            console.log('query length', query.length)
+
+            // console.log('query length', query.length)
             if(query.length < 20){
                 for(var i in return_info){
                     return_info.artists_names.push(query[i].artist_name)
@@ -63,8 +63,8 @@ function asyncMain(data){
                         return
                     }else{
                         if(playlist[i] >= 0.75){
-                            console.log(playlist[i])
-                            console.log(query[i])
+                            // console.log(playlist[i])
+                            // console.log(query[i])
                             return_info.artists_names.push(query[i].artist_name)
                             return_info.album_names.push(query[i].album_name)
                             return_info.track_names.push(query[i].track_name)
@@ -79,7 +79,7 @@ function asyncMain(data){
             return_info.num_songs = count;
             // console.log('main:', return_info)
             // console.log(return_info.num_songs)
-            console.log('end of be main')
+            // console.log('end of be main')
             return return_info
         }, 3000));
     })

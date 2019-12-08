@@ -13,7 +13,7 @@ class NeuralNetwork {
         // this.outputSize = 2;
 
         // this.weights = [0.3, 0.6, 0.2, 0.7, 0.3, 0.3, 0.234, 0.2345]
-        
+
         this.weights = [];
         for (var i = 0; i<this.inputSize; i++){
             // this.weights.push(0.3)
@@ -21,8 +21,8 @@ class NeuralNetwork {
 
         }
     }
-  
-    
+
+
     activate(inputs) {
         // console.log('activate', inputs)
         // var activation = this.weights
@@ -34,7 +34,7 @@ class NeuralNetwork {
         // console.log('activation', activation, '\n')
         return activation
     }
-    
+
     transfer(activation) {
         // console.log('transfer', activation)
         //sigmoid function//
@@ -59,11 +59,11 @@ class NeuralNetwork {
         // console.log(inputs)
         return inputs
     }
-    
+
     transfer_derivative(output) {
         return output * (1.0 - output)
     }
-    
+
     back_prop(network, expected/*? do we have an expected value... ?*/) {
         for (var i in network.reverse) {
             var layer = network[i]
@@ -84,15 +84,15 @@ class NeuralNetwork {
             }
         }
     } //end back_prop
-    
-    
+
+
     /*
-    NOTE: 
+    NOTE:
         load() and train() are note being called atm
 
     TODO:
     The plan is to allow user feedback to train the neural network.
-    We could save the weights in an external file and load them each time the 
+    We could save the weights in an external file and load them each time the
     app is run.
     This would allow the neural net to actually learn and train on user feedback,
     hopefully becoming better at generating playlists.
@@ -100,7 +100,7 @@ class NeuralNetwork {
     /*async load(){
         const fs = require('fs');
         const readline = require('readline');
-    
+
         let promise = new Promise((res, rej) => {
             setTimeout(() => {
                 const readWeights = readline.createInterface({
@@ -110,18 +110,18 @@ class NeuralNetwork {
                     // output
                     console: false
                 });
-        
+
                 let weights = []
                 readWeights.on('line', function(line){
                     console.log()
                     console.log(line)
                     weights.push(Number(line));
                 });
-                
+
                 console.log(weights)
                 return weights;
             }, 1000)
-    
+
             let result = await promise;
             console.log('r', result)
             return result;
@@ -129,20 +129,11 @@ class NeuralNetwork {
     }*/
 
    train(epochs){
-       
     }
-
 }
 
 exports.main = (data) => {
-// exports.main = (audio_features, weights) => {
-    console.log('in nn main')
-    
     var nn = new NeuralNetwork()
-    // var row = [0.7, 0, null]
-    
     var output = nn.forward_prop(data)
-    console.log('leaving nn main')
-    // console.log('o', output)
-    return output[0] //output is a 2d array for some reason... 
+    return output[0] //output is a 2d array for some reason...
 }

@@ -22,10 +22,10 @@ app.post('/', function(req, res){
   body = req.body;
 
   //debugging, see data recv'd from front end
-  console.log('recvd:', body)
+  // console.log('recvd:', body)
 
   // send data to be used
-  console.log('sending...')
+  // console.log('sending...')
   var obj;
   be_manager.main(body)
   .then((a) => Promise.resolve(a))
@@ -35,37 +35,37 @@ app.post('/', function(req, res){
   })
 });
 
-app.post('/login', (req, res) => {
-    body = req.body;
-
-    console.log(body)
-
-    var sp = new spotify({
-        clientId: body.username,
-        clientSecret: body.secret
-    })
-    // Create a private playlist
-    sp.createPlaylist('My Cool Playlist', { 'public' : false })
-      .then(function(data) {
-        console.log('Created playlist!');
-      }, function(err) {
-        console.log('Something went wrong!', err);
-      });
-
-      // Add tracks to a specific position in a playlist
-      var message;
-      sp.addTracksToPlaylist('5ieJqeLJjjI8iJWaxeBLuK',
-      ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"],
-      { position : 5 })
-      .then(function(data) {
-          message = 'Added tracks to playlist!'
-      }, function(err) {
-          message = 'Something went wrong!';
-      });
-
-      res.send(message)
-
-})
+// app.post('/login', (req, res) => {
+//     body = req.body;
+//
+//     console.log(body)
+//
+//     var sp = new spotify({
+//         clientId: body.username,
+//         clientSecret: body.secret
+//     })
+//     // Create a private playlist
+//     sp.createPlaylist('My Cool Playlist', { 'public' : false })
+//       .then(function(data) {
+//         console.log('Created playlist!');
+//       }, function(err) {
+//         console.log('Something went wrong!', err);
+//       });
+//
+//       // Add tracks to a specific position in a playlist
+//       var message;
+//       sp.addTracksToPlaylist('5ieJqeLJjjI8iJWaxeBLuK',
+//       ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"],
+//       { position : 5 })
+//       .then(function(data) {
+//           message = 'Added tracks to playlist!'
+//       }, function(err) {
+//           message = 'Something went wrong!';
+//       });
+//
+//       res.send(message)
+//
+// })
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

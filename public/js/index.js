@@ -33,7 +33,6 @@ $(document).ready(() => {
   })
 
   $('#submit-button').on('click', () => {
-
     $('#input').hide();
     $('#emoji-slider').hide();
     $('#num-songs').hide();
@@ -69,37 +68,37 @@ $(document).ready(() => {
           }
           $("#playlist").append('</ul><br>');
 
-          $('#export-button').on('click', () => {
-              // var SpotifyWebApi = require('spotify-web-api-node');
-              var secret, playlist_title;
-              var name = prompt('Please enter your Spotify username');
-              if (name != null && name != "") {
-                  secret = prompt('Please enter your Spotify password');
-                  if(secret != null && secret != '') {
-                      // Create a private playlist
-                      var playlist_title = 'Project-phi Playlist '
-                      alert(playlist_title)
-                  }
-              }
-
-              console.log(name, secret, playlist_title)
-              var playlist_data = {
-                  name: name,
-                  secret: secret,
-                  title: playlist_title,
-                  ids: data.track_ids
-              };
-              $.ajax({
-                type: 'POST', //type of ajax call
-                data: JSON.stringify(playlist_data), //prepares for flight
-                contentType: 'application/json', //unsure...
-                url: '/login', //url used to send/recv data
-
-                success: function (data) { //on success, recv's data from server
-                        alert('exported!')
-                    }
-                });
-          })
+          // $('#export-button').on('click', () => {
+          //     // var SpotifyWebApi = require('spotify-web-api-node');
+          //     var secret, playlist_title;
+          //     var name = prompt('Please enter your Spotify username');
+          //     if (name != null && name != "") {
+          //         secret = prompt('Please enter your Spotify password');
+          //         if(secret != null && secret != '') {
+          //             // Create a private playlist
+          //             var playlist_title = 'Project-phi Playlist '
+          //             alert(playlist_title)
+          //         }
+          //     }
+          //
+          //     console.log(name, secret, playlist_title)
+          //     var playlist_data = {
+          //         name: name,
+          //         secret: secret,
+          //         title: playlist_title,
+          //         ids: data.track_ids
+          //     };
+          //     $.ajax({
+          //       type: 'POST', //type of ajax call
+          //       data: JSON.stringify(playlist_data), //prepares for flight
+          //       contentType: 'application/json', //unsure...
+          //       url: '/login', //url used to send/recv data
+          //
+          //       success: function (data) { //on success, recv's data from server
+          //               alert('exported!')
+          //           }
+          //       });
+          // })
 
 
         }

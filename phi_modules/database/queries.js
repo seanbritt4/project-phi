@@ -16,7 +16,7 @@ var qoutput;
 //Gets values and send to select
 exports.sendQuery = function (values, g) {
     genre = g;
-    console.log(values)
+    // console.log(values)
     setTimeout(function () {
         if (values) {
             vals = values;
@@ -43,8 +43,8 @@ select = function () {
             // console.log("returning result");
             //console.log(result);
             qoutput = result;
-            console.log('q length', qoutput[0])
-            console.log('q', qoutput.length)
+            // console.log('q length', qoutput[0])
+            // console.log('q', qoutput.length)
         }
     });
 }
