@@ -14,6 +14,7 @@ var minmax = [];
 var qoutput;
 // Holds genre
 var genre;
+var t=0;
 
 //Gets values and send to select
 exports.sendQuery = function(values, g){
@@ -24,6 +25,7 @@ exports.sendQuery = function(values, g){
   }
   else {
     console.log("no vals input");
+    t=1;
   }
   if(g){
     console.log("pushed genre");
@@ -43,8 +45,8 @@ exports.sendQuery = function(values, g){
       global.query=qoutput;
       //export.qoutput = qoutput;
       //return qoutput;
-    }, 5000);
-  }, 3000);
+    }, 9000);
+  }, 5000);
 }
 
 // Sets min and maxs and sends the query and returns
@@ -97,6 +99,7 @@ AND (loudness BETWEEN ${minmax[6]} AND ${minmax[7]})
 AND (tempo BETWEEN ${minmax[8]} AND ${minmax[9]})
 AND (valence BETWEEN ${minmax[10]} AND ${minmax[11]})
 AND (artist.artist_genre LIKE '%${genre}%')
+OR (1=${t})
 ORDER BY rand()
 LIMIT 5000;`
 
