@@ -5,7 +5,8 @@ var statement;
 //Holds min and max of vals
 var minmax = [];
 //default test vals
-var vals = [.1,.5,.5,-5,100,.4];
+var vals = [0,0,0,0,0,0];
+var vals;
 //Variation applied to vals, needs refining
 var variation = [1,1,1,20,90,1];
 //Holds min and max of vals
@@ -75,7 +76,7 @@ addVariation = function(){
     minmax[i+i+1] = vals[i] + variation[i];
   }
 
-statement = `SELECT
+statement = `SELECT DISTINCT 
 artist.artist_name,
 album.album_name,
 track.track_name,

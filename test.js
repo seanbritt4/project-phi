@@ -5,7 +5,7 @@ var stuff =[Object()];
 
 var vals = [.1,.5,.5,-5,100,.4];
 var val;
-stuff = modules.sendQuery(vals, '`');
+stuff = modules.sendQuery(val, '`');
 //import {qoutput} from './phi_modules/database/testQ.js';
 setTimeout(function(){
 console.log("printing rows");
