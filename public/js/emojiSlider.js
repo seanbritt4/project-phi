@@ -20,23 +20,67 @@ var selected = emojis.length / 2;
 
 var mouseDown = false;
 
+/*var valuePresets = [
+	//acousticness, danceability, energy, LIVENESS, LOUDNESS, SPEECHINESS, tempo, valence
+	//.1, 			.5, 		  .5, 	 .4,   		-6, 		.5, 		120, 	.5  
+
+	[0.03, 0.8, 0.9, 0.5, -3,  0.0, 170, 0.8], //big smile
+	[0.03, 0.6, 0.6, 0.7, -5,  0.5, 130, 0.6], //forced smile
+	[0.03, 0.7, 0.7, 0.5, -6,  0.5, 150, 0.7], //normal smile
+	[0.05, 0.4, 0.2, 0.2, -8,  0.5, 80,  0.2], //bored
+	[0.02, 0.4, 0.5, 0.4, -4,  0.5, 110, 0.4], //disgruntled
+	[0.02, 0.4, 0.6, 0.3, -5,  0.5, 120, 0.2], //malcontent
+	[0.02, 0.3, 0.7, 0.5, -3,  0.5, 150, 0.3], //frustrated
+	[0.30, 0.3, 0.4, 0.5, -9,  0.4, 100, 0.3], //single tear
+	[0.07, 0.3, 0.2, 0.2, -7,  0.4, 90,  0.2], //pretty sad
+	[0.10, 0.3, 0.0, 0.2, -10, 0.3, 80,  0.1], //sad boi
+	[0.08, 0.5, 0.0, 0.2, -13, 0.3, 85,  0.1], //tired
+	[0.10, 0.3, 0.0, 0.0, -15, 0.3, 75,  0.0], //asleep
+	[0.00, 0.4, 0.7, 0.6, -2,  0.1, 80,  0.4], //angry
+	[0.00, 0.5, 0.9, 0.4, -3,  0.2, 150, 0.4], //mad
+	[0.00, 0.8, 0.7, 0.4, -1,  0.0, 160, 0.4], //devilish
+	//poop 
+	[Math.random(), 
+	Math.random(), 
+	Math.random(), 
+	Math.random(), 
+	(((Math.random() * -10) % 11) - 1),
+	Math.random(), 
+	(((Math.random() * 100)  % 180) + 80),
+	Math.random(),
+	Math.random()]
+];*/
+
 var valuePresets = [
-	[1.00,1.0,1.0,1.0,1.0], //big smile
-	[0.69,0.9,0.9,0.9,0.6], //forced smile
-	[0.69,0.7,0.7,0.7,0.6], //noraml smile
-	[0.50,0.5,0.5,0.5,0.5], // bored
-	[0.45,0.4,0.4,0.4,0.4], //disgruntled
-	[0.30,0.4,0.4,0.3,0.4], //malcontent
-	[0.70,0.3,0.5,0.3,0.7], //frustrated
-	[0.50,0.3,0.4,0.2,0.4], //single tear
-	[0.30,0.0,0.2,0.0,0.6], //pretty sad
-	[0.30,0.0,0.0,0.0,0.3], //sad boi
-	[0.10,0.6,0.0,0.6,0.0], //tired
-	[0.00,0.2,0.0,0.2,0.0], //asleep
-	[0.60,0.3,0.7,0.2,0.7], //angry
-	[0.80,0.2,0.9,0.0,0.8], //mad
-	[1.00,0.0,1.0,0.0,1.0], //devilish
-	[Math.random(), Math.random(), Math.random(), Math.random(), Math.random()] //poop
+	//acousticness, danceability, energy, LIVENESS, LOUDNESS, SPEECHINESS, tempo, valence
+	//.1, 			.5, 		  .5, 	 .4,   		-6, 		.5, 		120, 	.5  
+
+	[0.03, 0.8, 0.9, -3, 170, 0.8], //big smile
+	[0.03, 0.6, 0.6, -5, 130, 0.6], //forced smile
+	[0.03, 0.7, 0.7, -6, 150, 0.7], //normal smile
+	[0.05, 0.4, 0.2, -8, 80, 0.2], //bored
+	[0.02, 0.4, 0.5, -4, 110, 0.4], //disgruntled
+	[0.02, 0.4, 0.6, -5, 120, 0.2], //malcontent
+	[0.02, 0.3, 0.7, -3, 150, 0.3], //frustrated
+	[0.30, 0.3, 0.4, -9, 100, 0.3], //single tear
+	[0.07, 0.3, 0.2, -7, 90, 0.2], //pretty sad
+	[0.10, 0.3, 0.0, -10, 80, 0.1], //sad boi
+	[0.08, 0.5, 0.0, -13, 85, 0.1], //tired
+	[0.10, 0.3, 0.0, -15, 75, 0.0], //asleep
+	[0.00, 0.4, 0.7, -2, 80, 0.4], //angry
+	[0.00, 0.5, 0.9, -3, 150, 0.4], //mad
+	[0.00, 0.8, 0.7, -1, 160, 0.4], //devilish
+	//poop 
+	[Math.random(),
+		Math.random(),
+		Math.random(),
+		Math.random(),
+		(((Math.random() * -10) % 11) - 1),
+		Math.random(),
+		(((Math.random() * 100) % 180) + 80),
+		Math.random(),
+		Math.random()
+	]
 ];
 
 var mouseX;
@@ -175,6 +219,6 @@ function setMouseUp(){
 	mouseDown = false;
 }
 
-function submit(){
+function emojiSubmit(){
 	return valuePresets[selected];
 }

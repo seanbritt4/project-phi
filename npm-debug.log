@@ -7,7 +7,7 @@
 6 silly lifecycle project-phi@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle project-phi@0.0.0~start: project-phi@0.0.0
 8 verbose lifecycle project-phi@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle project-phi@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/mnt/linuxlab/home/sbrittingham1/github/project-phi/node_modules/.bin:/usr/local/cuda/bin:/usr/local/cuda/bin:/usr/lib64/openmpi3/bin:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/puppetlabs/bin:/mnt/linuxlab/home/sbrittingham1/bin:/mnt/linuxlab/home/sbrittingham1/bin/scripts:/mnt/linuxlab/home/sbrittingham1/bin:/mnt/linuxlab/home/sbrittingham1/bin/scripts
+9 verbose lifecycle project-phi@0.0.0~start: PATH: /usr/lib/node_modules/npm/bin/node-gyp-bin:/mnt/linuxlab/home/sbrittingham1/github/project-phi/node_modules/.bin:/usr/local/cuda/bin:/usr/lib64/openmpi3/bin:/usr/lib64/qt-3.3/bin:/usr/lib64/ccache:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/puppetlabs/bin:/mnt/linuxlab/home/sbrittingham1/bin:/mnt/linuxlab/home/sbrittingham1/bin/scripts
 10 verbose lifecycle project-phi@0.0.0~start: CWD: /mnt/linuxlab/home/sbrittingham1/github/project-phi
 11 silly lifecycle project-phi@0.0.0~start: Args: [ '-c', 'node ./bin/www' ]
 12 silly lifecycle project-phi@0.0.0~start: Returned: code: 1  signal: null
@@ -23,7 +23,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:920:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
 15 verbose pkgid project-phi@0.0.0
-16 verbose cwd /mnt/linuxlab/home/sbrittingham1/github/project-phi/phi_modules/database
+16 verbose cwd /mnt/linuxlab/home/sbrittingham1/github/project-phi
 17 error Linux 3.10.0-1062.1.1.el7.x86_64
 18 error argv "/usr/bin/node" "/usr/bin/npm" "start"
 19 error node v6.17.1

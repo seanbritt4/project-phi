@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 var path = process.env.JAWSDB_CYAN_URL;
 
-var db = mysql.createConnection(path);
+var db = mysql.createConnection(path)
 
 db.connect(function(err){
     if(err){
@@ -10,6 +10,4 @@ db.connect(function(err){
     } else console.log('database connected');
 });
 
-
-// db.select('SELECT 1 + 1 As solution');
 module.exports = db;
