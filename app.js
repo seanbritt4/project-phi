@@ -8,10 +8,10 @@ var logger = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config();
 
-var bparser = require('body-parser');   //use to convert json body to strings when needed
+var bparser     = require('body-parser');   //use to convert json body to strings when needed
 var indexRouter = require('./routes/index');    //index.js
-var usersRouter = require('./routes/users');    //users.js
 var inputRouter = require('./routes/input');    //about.js
+// var usersRouter = require('./routes/users');    //users.js
 var app = express();
 
 console.log('ATTN: nn connected but under revision');
@@ -21,10 +21,9 @@ app.use(bparser.json());
 var body;
 app.post('/', function(req, res){
   body = req.body;
-  // var obj? = {};
 
   //debugging, see data recv'd from front end
-  // console.log('app, body:', body)
+  console.log('recvd:', body)
 
   // send data to be used
   console.log('sending...')
@@ -34,13 +33,6 @@ app.post('/', function(req, res){
   // console.log('returninfo: ', obj)
   res.send(obj);
 });
-
-app.get('input', function(req, res){
-//     inputRouter();
-
-    console.log('here, get BEasdl');
-    res.send('input');
-})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
