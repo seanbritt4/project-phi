@@ -40,6 +40,7 @@ function asyncMain(data){
                 artists_names: [],
                 album_names: [],
                 track_names: [],
+                track_ids: [],
                 message_status: false,
                 message: ''
             }
@@ -63,9 +64,11 @@ function asyncMain(data){
                     }else{
                         if(playlist[i] >= 0.75){
                             console.log(playlist[i])
+                            console.log(query[i])
                             return_info.artists_names.push(query[i].artist_name)
                             return_info.album_names.push(query[i].album_name)
                             return_info.track_names.push(query[i].track_name)
+                            return_info.track_ids.push(query[i].track_id)
                             count++;
                         }
                     }

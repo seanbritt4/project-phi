@@ -43,6 +43,7 @@ select = function () {
             // console.log("returning result");
             //console.log(result);
             qoutput = result;
+            console.log('q length', qoutput[0])
             console.log('q', qoutput.length)
         }
     });
@@ -59,6 +60,7 @@ statement = `SELECT DISTINCT
     artist.artist_name,
     album.album_name,
     track.track_name,
+    audio_features.track_id,
     audio_features.acousticness as acousticness,
     audio_features.danceability as danceability,
     audio_features.energy as energy,
