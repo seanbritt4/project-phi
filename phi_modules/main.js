@@ -35,6 +35,7 @@ function asyncMain(data){
             var count = 0;
             var i = 0;
             var return_info = {
+                genre: genre,
                 num_songs,
                 artists_names: [],
                 album_names: [],
@@ -42,7 +43,7 @@ function asyncMain(data){
             }
             
             while(count < num_songs && i < 1000){
-                if(playlist.length == 0) {
+                if(playlist == undefined) {
                     console.log('no songs returned')
                     return
                 }else{

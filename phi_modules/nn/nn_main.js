@@ -17,7 +17,7 @@ class NeuralNetwork {
         this.weights = [];
         for (var i = 0; i<this.inputSize; i++){
             // this.weights.push(0.3)
-            this.weights.push(Math.random())
+            this.weights.push(0.08 * Math.random())
 
         }
     }
@@ -29,7 +29,7 @@ class NeuralNetwork {
         var activation = 0
         for (var i in inputs) {
             // console.log(this.weights[i])
-            activation += this.weights[i] + inputs[i]
+            activation += this.weights[i] *inputs[i]
         }
         // console.log('activation', activation, '\n')
         return activation
@@ -39,11 +39,6 @@ class NeuralNetwork {
         // console.log('transfer', activation)
         //sigmoid function//
         // Math.E: Eulers number
-
-        // var x = Math.pow(Math.E, -activation)
-        // console.log('sig1:', x)
-        // console.log('sig2:', 1 + x)
-        // console.log('sig3:', 1.0 / (1.0 + x))
 
         return 1.0 / (1.0 + (Math.pow(Math.E, (-activation))))
     }
@@ -148,5 +143,6 @@ exports.main = (data) => {
     
     var output = nn.forward_prop(data)
     console.log('leaving nn main')
+    console.log('o', output)
     return output[0] //output is a 2d array for some reason... 
 }

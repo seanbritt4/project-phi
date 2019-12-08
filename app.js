@@ -30,9 +30,8 @@ app.post('/', function(req, res){
   be_manager.main(body)
   .then((a) => Promise.resolve(a))
   .then((a) => {
-    // var return_info = a()
-    // res.send(return_info)
-    res.send(a())
+    var return_info = a()
+    res.send(return_info)
   })
 });
 

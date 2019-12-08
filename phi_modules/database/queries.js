@@ -10,12 +10,12 @@ var vals = [.1, .5, .5, -5, 100, .4];
 var variation = [.15, .2, .2, 3, 30, .2];
 //Holds min and max of vals
 var minmax = [];
-var chosenGenre;
+var genre;
 var qoutput;
 
 //Gets values and send to select
-exports.sendQuery = function (values, genre) {
-    chosenGenre = genre;
+exports.sendQuery = function (values, g) {
+    genre = g;
     console.log(values)
     setTimeout(function () {
         if (values) {
@@ -43,6 +43,7 @@ select = function () {
             // console.log("returning result");
             //console.log(result);
             qoutput = result;
+            console.log('q', qoutput.length)
         }
     });
 }
@@ -54,22 +55,32 @@ addVariation = function () {
         minmax[i + i + 1] = vals[i] + variation[i];
     }
 
-    console.log(chosenGenre)
-
-    statement = `SELECT artist.artist_name, album.album_name, track.track_name, audio_features.*
+statement = `SELECT DISTINCT
+    artist.artist_name,
+    album.album_name,
+    track.track_name,
+    audio_features.acousticness as acousticness,
+    audio_features.danceability as danceability,
+    audio_features.energy as energy,
+    audio_features.loudness as loudness,
+    audio_features.tempo as tempo,
+    audio_features.valence as valence
     FROM artist
-    JOIN album
-    ON artist.artist_id=album.artist_id
-    JOIN track
-    ON album.album_id=track.album_id
-    JOIN audio_features
-    ON track.track_id=audio_features.track_id
+    INNER JOIN album
+    ON (artist.artist_id = album.artist_id)
+    INNER JOIN track
+    ON (album.album_id = track.album_id)
+    INNER JOIN audio_features
+    ON (track.track_id = audio_features.track_id)
     WHERE (acousticness BETWEEN ${minmax[0]} AND ${minmax[1]})
     AND (danceability BETWEEN ${minmax[2]} AND ${minmax[3]})
     AND (energy BETWEEN ${minmax[4]} AND ${minmax[5]})
     AND (loudness BETWEEN ${minmax[6]} AND ${minmax[7]})
     AND (tempo BETWEEN ${minmax[8]} AND ${minmax[9]})
     AND (valence BETWEEN ${minmax[10]} AND ${minmax[11]})
-    ORDER BY RAND()
-    LIMIT 1000;`;
+    AND (artist.artist_genre LIKE '%${genre}%')
+    ORDER BY rand()
+    LIMIT 5000`;
+
+    // console.log(statement)
 }

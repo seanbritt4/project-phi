@@ -53,7 +53,9 @@ $(document).ready(() => {
       
       success: function (data) { //on success, recv's data from server
         // now we can do stuff with the data from the server
-        $("#playlist").append('<b>Your playlist:</b><br><ul>');
+        var genre = data.genre;
+        if(genre === ''){genre = "All"}
+        $("#playlist").append('<b>Your playlist(', genre, ')</b><br><ul>');
         // for(var i in data.num_songs){
           console.log('data:', data)
           for (var i = 0; i < data.num_songs; i++) {
