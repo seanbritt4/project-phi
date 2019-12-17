@@ -65,7 +65,7 @@ def main(arglist):
     api_authorization_token = parsed_api_token_json.get('access_token')
     api_authorization_token = 'Bearer ' + api_authorization_token
 
-    with open("all_artists_sorted.txt", "r") as artists_file:
+    with open("all_artists.txt", "r") as artists_file:
         for line in artists_file:
             artist = line.strip()
             print 'Currently working on %s' % (artist)
